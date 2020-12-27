@@ -56,9 +56,11 @@ After Preparing data in a text file, we will create a Tokenizer in our case it w
 
 Note: Albert has some predefined tokens as well such as <PAD>, <UNK>, <sep>, </sep>, <CLS>, etc then final vocabulary size should include the special tokens as well. For Example, if the length of special tokens is 8, the vocabulary size should be 32008.
 
-Let's install dependencies, 
-`pip install transformers`
-`pip install sentencepiece`
+Let's install dependencies,
+```markdown
+pip install transformers
+pip install sentencepiece
+```
 
 We have chosen a complete vocabulary size of 40000 for our language. We will train sentence piece tokenizer by keeping space of 10 tokens for Albert Special Tokens.
 Note: If the vocabulary size is less than the number of words in your text file it will throw an exception to decrease your vocab size.
@@ -84,14 +86,20 @@ os.rename('spiece.vocab','Persian_Model/spiece.vocab')
 ```
 Lets Import some necessary dependencies
 
-`from transformers import AlbertForMaskedLM,AlbertConfig,AlbertTokenizer`
+```markdown
+from transformers import AlbertForMaskedLM,AlbertConfig,AlbertTokenizer
+```
 
 Lets load our created Tokenizer, it will add special tokens like 'PAD','MASK' etc that we did not add in our vocabulary.
-`persian_tokenizer = AlbertTokenizer.from_pretrained('Persian_Model')`
+```markdown
+persian_tokenizer = AlbertTokenizer.from_pretrained('Persian_Model')
+```
  
 Thats Great!
 Now again save your model in same directory.
-`persian_tokenizer.save_pretrained('Persian_Model')`
+```markdown
+persian_tokenizer.save_pretrained('Persian_Model')
+```
 
 ### Create DataLoader
 
@@ -122,19 +130,25 @@ of language model
 We will be using Albert Large in this experiment.
 lets initialize it from its default configuration
 
-`config=AlbertConfig.from_pretrained('albert-large-v2')`
+```markdown
+config=AlbertConfig.from_pretrained('albert-large-v2')
+```
 
 save this configuration in ***Persian_Model*** directory
 
-`config.save_pretrained('Persian_Model')`
+```markdown
+config.save_pretrained('Persian_Model')
+```
 
 Now we can edit the parameters of this model to customize it but in our case we
 will be modifying the vocab_size parameter from 32000 to 40000, as it is used
 to initialize the embedding layer of model and save the config file.
 
 lets Initialize our model from modified config.
-`config=AlbertConfig.from_pretrained('Persian_Model')`
-`persian_model = AlbertForMaskedLM(config=config)`
+```markdown
+config=AlbertConfig.from_pretrained('Persian_Model')
+persian_model = AlbertForMaskedLM(config=config)
+```
  
 ### Model Training
 
@@ -163,16 +177,16 @@ trainer = Trainer(
 )
  ```
 Now call the .train function of trainer to start training our model. 
-`trainer.train()`
- 
-
-
+```markdown
+trainer.train()
+```
 Decrease the batch_size in case of cuda memory errors.
 Once The training is complete, you are getting loss <1.0.
 you have to save your Tokenizer again because trainer will only store model related files.
 
-`persian_tokenizer.save_pretrained('persian_albert')`
-
+```markdown
+persian_tokenizer.save_pretrained('persian_albert')
+```
 Delete the unnecessary files like ***'optimizer.pt'*** file.
 We have successfully created a persian language model, we can use it for our 
 other tasks like Text Classification, Named Entity Recognition etc,Machine Translation etc.
