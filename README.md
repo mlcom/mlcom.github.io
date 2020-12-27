@@ -1,4 +1,4 @@
-## Welcome to Machine Learning Blogs
+## ALBERT (a lite bert) : Train a Language Model From Scratch Using Custom Data
 In this blog post, we will create a customized Albert (a lite Bert) language model from scratch using hugging face transformers on custom data set.
 
 Since The Release of Bert, a pre-trained model by Google, language models have gained enormous attention in Natural Language Processing. We can use a language model to solve text-related downstream tasks like Text Classification, Named entity recognition, Text summarization, Question Answering Tasks, and Text Generation tasks.
