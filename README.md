@@ -37,9 +37,12 @@ Let's start step by step,
 We will use the ***Persian*** Language To train our Albert model. Create our custom data set in a text file in my case it is named ***Persian.txt***. ***Our data is stored in such a format that every sentence ends with a new line ‘\n’ character***.
 
 Let's open our text file and see its contents
-`with open('persian.txt','r') as txt_file:
+
+```markdown
+with open('persian.txt','r') as txt_file:
      read_file = txt_file.readlines()
-     print(read_file[:3])`
+     print(read_file[:3])
+```
 ```markdown
 
 ما امروز زبان فارسی را یاد خواهیم گرفت.
