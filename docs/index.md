@@ -165,7 +165,7 @@ trainer = Trainer(
 Now call the .train function of trainer to start training our model. 
 `trainer.train()`
  
-file:///home/sibtain/Pictures/trainer.png
+
 
 Decrease the batch_size in case of cuda memory errors.
 Once The training is complete, you are getting loss <1.0.
