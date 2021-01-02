@@ -54,7 +54,7 @@ It looks good.
 ### Create Tokenizer
 After Preparing data in a text file, we will create a Tokenizer in our case it will be Sentence Piece Tokenizer. First of All, install the Sentence Piece dependency and import it. Let's train our Sentence Piece Tokenizer, here vocabulary size is important and it varies from language to language. The Original Albert Tokenizer has a vocabulary size of 32000. 
 
-Note: Albert has some predefined tokens as well such as <PAD>, <UNK>, <sep>, </sep>, <CLS>, etc then final vocabulary size should include the special tokens as well. For Example, if the length of special tokens is 8, the vocabulary size should be 32008.
+Note: Albert has some predefined tokens as well such as PAD, UNK, sep, /sep, CLS, etc then final vocabulary size should include the special tokens as well. For Example, if the length of special tokens is 8, the vocabulary size should be 32008.
 
 Let's install dependencies,
 ```markdown
