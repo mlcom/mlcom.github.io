@@ -1,3 +1,9 @@
+<html>
+  <head>
+  <script data-ad-client="ca-pub-7391081469827045" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+  </script>
+  </head>
+</html>
 ## ALBERT (a lite bert) : Train a Language Model From Scratch Using Custom Data
 In this blog post, we will create a customized Albert (a lite Bert) language model from scratch using hugging face transformers on custom data set.
 
