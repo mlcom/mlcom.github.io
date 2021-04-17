@@ -4,8 +4,7 @@
   </script>
   </head>
 </html>
-
-## Albert (a lite bert) 
+## Albert (a lite bert)
 ### Language Model Pretraining
 ## How To Pre-Train a Language Model From Scratch Using Custom Data
 
