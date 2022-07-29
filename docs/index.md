@@ -1,7 +1,8 @@
 <html>
   <head>
-  <script data-ad-client="ca-pub-7391081469827045" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
-  </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7391081469827045"
+            crossorigin="anonymous">
+    </script>
   </head>
 </html>
 ## Albert (a lite bert)
