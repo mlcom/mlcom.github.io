@@ -3,7 +3,7 @@ layout: post
 title:  "Saudi Arabia Riyal To PKR Rate Today"
 author: jane
 categories: [ sar to pkr ]
-image: assets/images/sar-to-pkr.jpg
+image: assets/images/sar-to-pkr-rate-today.jpg
 tags: [riyal,pkr]
 ---
 
