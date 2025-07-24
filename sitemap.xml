@@ -1,6 +1,3 @@
----
-layout: 
----
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -8,27 +5,48 @@ layout:
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-  {% for page in site.pages %}
-  {% if page.url contains '.xml' or page.url contains 'assets' %}{% else %}
-      <url>
-        <loc>{{ site.url }}{{ page.url }}</loc>
-        <lastmod>2025-07-23T01:31:56+00:00</lastmod>
-        <priority>1.0</priority>
-       </url>
-  {% endif %}
-  {% endfor %}
-  {% for page in site.posts %}
-      <url>
-        <loc>{{ site.url }}{{ page.url | replace: 'index.html', '' }}</loc>
-        <lastmod>2025-07-23T01:31:56+00:00</lastmod>
-        <priority>1.0</priority>
-       </url>
-  {% endfor %}
-  {% for page in site.without-plugin %}
-      <url>
-        <loc>{{ site.url }}{{ page.url | replace: 'index.html', '' }}</loc>
-        <lastmod>2025-07-23T01:31:56+00:00</lastmod>
-        <priority>1.0</priority>
-       </url>
-  {% endfor %}
+
+
+<url>
+  <loc>https://mlcom.github.io/</loc>
+  <lastmod>2025-07-23T01:31:56+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://mlcom.github.io/index.html</loc>
+  <lastmod>2025-07-23T01:31:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mlcom.github.io/authors-list.html</loc>
+  <lastmod>2025-07-23T01:31:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mlcom.github.io/contact.html</loc>
+  <lastmod>2025-07-23T01:31:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mlcom.github.io/today-saudi-riyal-to-pkr-23-july-2025-prices-updated-sar-to-pkr/</loc>
+  <lastmod>2025-07-23T01:31:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mlcom.github.io/categories.html</loc>
+  <lastmod>2025-07-23T01:31:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mlcom.github.io/today-gold-prices-in-pakistan-23-July-2025-check-rates/</loc>
+  <lastmod>2025-07-23T01:31:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mlcom.github.io/tags.html</loc>
+  <lastmod>2025-07-23T01:31:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>
