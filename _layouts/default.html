@@ -61,59 +61,48 @@
         <ul class="mb-0"></ul>
     </div>
 
-   <main role="main" class="site-content">
+  <main role="main" class="site-content">
 
-        <!-- ===== FINAL CURRENCY CALCULATOR (USER-DIRECTED METHOD) ===== -->
+        <!-- ===== FINAL CORRECTED CURRENCY CALCULATOR (ALL CURRENCIES) ===== -->
         <div class="container pt-4 pb-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Currency Converter</h5>
-                    <div id="currency-calculator">
-                        <div class="form-row">
-                            <!-- Amount Input -->
-                            <div class="form-group col-md-12">
-                                <label for="amount">Amount</label>
-                                <input type="number" id="amount" class="form-control" value="100" placeholder="Enter amount">
+                    <h5 class="card-title">Live Currency Converter</h5>
+                    <!-- The fieldset is disabled until the currency list is loaded -->
+                    <fieldset id="calculator-fieldset" disabled>
+                        <div id="currency-calculator">
+                            <div class="form-row">
+                                <!-- Amount Input -->
+                                <div class="form-group col-md-12">
+                                    <label for="amount">Amount</label>
+                                    <input type="number" id="amount" class="form-control" value="100" placeholder="Enter amount">
+                                </div>
+                                <!-- From Currency -->
+                                <div class="form-group col-md-6">
+                                    <label for="from_currency">From</label>
+                                    <select id="from_currency" class="form-control">
+                                        <option>Loading Currencies...</option>
+                                    </select>
+                                </div>
+                                <!-- To Currency -->
+                                <div class="form-group col-md-6">
+                                    <label for="to_currency">To</label>
+                                    <select id="to_currency" class="form-control">
+                                        <option>Loading Currencies...</option>
+                                    </select>
+                                </div>
                             </div>
-                            <!-- From Currency -->
-                            <div class="form-group col-md-6">
-                                <label for="from_currency">From</label>
-                                <select id="from_currency" class="form-control">
-                                    <option value="USD">🇺🇸 USD - US Dollar</option>
-                                    <option value="PKR" selected>🇵🇰 PKR - Pakistani Rupee</option>
-                                    <option value="EUR">🇪🇺 EUR - Euro</option>
-                                    <option value="GBP">🇬🇧 GBP - British Pound</option>
-                                    <option value="AED">🇦🇪 AED - UAE Dirham</option>
-                                    <option value="INR">🇮🇳 INR - Indian Rupee</option>
-                                    <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
-                                    <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
-                                </select>
+                            <!-- Convert Button -->
+                            <div class="form-group text-center mt-3">
+                                <button id="convert-button" class="btn btn-primary">Convert</button>
                             </div>
-                            <!-- To Currency -->
-                            <div class="form-group col-md-6">
-                                <label for="to_currency">To</label>
-                                <select id="to_currency" class="form-control">
-                                    <option value="USD" selected>🇺🇸 USD - US Dollar</option>
-                                    <option value="PKR">🇵🇰 PKR - Pakistani Rupee</option>
-                                    <option value="EUR">🇪🇺 EUR - Euro</option>
-                                    <option value="GBP">🇬🇧 GBP - British Pound</option>
-                                    <option value="AED">🇦🇪 AED - UAE Dirham</option>
-                                    <option value="INR">🇮🇳 INR - Indian Rupee</option>
-                                    <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
-                                    <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
-                                </select>
+                            <!-- Result and Status Messages -->
+                            <div id="result_container" class="mt-3 text-center">
+                                <h6 id="result_text" class="text-success font-weight-bold"></h6>
+                                <p id="status_text" class="text-muted"></p>
                             </div>
                         </div>
-                        <!-- Convert Button -->
-                        <div class="form-group text-center mt-3">
-                            <button id="convert-button" class="btn btn-primary">Convert</button>
-                        </div>
-                        <!-- Result and Status Messages -->
-                        <div id="result_container" class="mt-3 text-center">
-                            <h6 id="result_text" class="text-success font-weight-bold"></h6>
-                            <p id="status_text" class="text-muted"></p>
-                        </div>
-                    </div>
+                    </fieldset>
                      <small class="text-muted">Rates sourced from frankfurter.dev, updated daily via the European Central Bank.</small>
                 </div>
             </div>
@@ -128,35 +117,61 @@
             const convertButton = document.getElementById('convert-button');
             const resultText = document.getElementById('result_text');
             const statusText = document.getElementById('status_text');
+            const fieldset = document.getElementById('calculator-fieldset');
             
             /**
-             * This function performs the conversion using the exact logic you provided.
-             * It makes a specific API call for the requested currency pair.
+             * Step 1: Fetch all available currencies and populate the dropdowns.
+             * This part is correct and remains the same.
+             */
+            async function populateCurrencies() {
+                try {
+                    const response = await fetch('https://api.frankfurter.dev/v1/currencies');
+                    if (!response.ok) throw new Error('Could not fetch currency list.');
+                    
+                    const currencies = await response.json();
+                    fromSelect.innerHTML = '';
+                    toSelect.innerHTML = '';
+
+                    for (const [code, name] of Object.entries(currencies)) {
+                        fromSelect.add(new Option(`${code} - ${name}`, code));
+                        toSelect.add(new Option(`${code} - ${name}`, code));
+                    }
+                    
+                    fromSelect.value = 'USD';
+                    toSelect.value = 'EUR';
+                    fieldset.disabled = false;
+
+                } catch (error) {
+                    console.error('Population Error:', error);
+                    statusText.innerHTML = `<span class="text-danger">Could not load calculator. Please refresh the page.</span>`;
+                }
+            }
+
+            /**
+             * Step 2: The CORRECTED conversion function.
+             * It fetches the RATE ONLY and does the math in the browser.
              */
             function convert(from, to, amount) {
-                // Show a loading message
                 statusText.textContent = 'Fetching rate...';
-                resultText.textContent = ''; // Clear previous result
+                resultText.textContent = '';
 
-                // Corrected endpoint as per your example. NOTE: The '/v1' path is not in the latest docs, but we will use your provided URL.
-                fetch(`https://api.frankfurter.dev/latest?from=${from}&to=${to}`)
+                // CORRECTED API CALL: Does NOT send 'amount'.
+                fetch(`https://api.frankfurter.dev/v1/latest?from=${from}&to=${to}`)
                     .then(resp => {
-                        if (!resp.ok) {
-                            throw new Error('Network response was not ok');
-                        }
+                        if (!resp.ok) throw new Error('Network response was not ok');
                         return resp.json();
                     })
                     .then(data => {
-                        // Check if the target rate exists
-                        if (data.rates && data.rates[to]) {
-                            const convertedAmount = (amount * data.rates[to]);
-                            
-                            // Display the result on the page instead of an alert
-                            resultText.innerHTML = `${amount.toLocaleString()} ${from} = <span class="text-primary">${convertedAmount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span> ${to}`;
-                            statusText.textContent = ''; // Clear loading message
-                        } else {
-                            throw new Error(`Conversion rate for ${to} was not found.`);
-                        }
+                        // Get the rate from the response
+                        const rate = data.rates[to];
+                        if (!rate) throw new Error(`Rate for ${to} not found.`);
+
+                        // Perform the calculation in JavaScript
+                        const convertedAmount = amount * rate;
+                        
+                        // Display the result
+                        resultText.innerHTML = `${amount.toLocaleString()} ${from} = <span class="text-primary">${convertedAmount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span> ${to}`;
+                        statusText.textContent = '';
                     })
                     .catch(error => {
                         console.error('Conversion Error:', error);
@@ -164,26 +179,26 @@
                     });
             }
 
-            // Add an event listener to the button
+            // Event listener for the button
             convertButton.addEventListener('click', function() {
                 const amount = parseFloat(amountInput.value);
                 const fromCurrency = fromSelect.value;
                 const toCurrency = toSelect.value;
 
-                // Basic validation
                 if (isNaN(amount) || amount <= 0) {
                     statusText.innerHTML = '<span class="text-danger">Please enter a valid amount.</span>';
                     resultText.textContent = '';
                     return;
                 }
                 
-                // Call the conversion function when the button is clicked
                 convert(fromCurrency, toCurrency, amount);
             });
-
+            
+            // Initial Action: Populate the dropdowns
+            populateCurrencies();
         });
         </script>
-        <!-- ===== END FINAL CURRENCY CALCULATOR ===== -->
+        <!-- ===== END FINAL CORRECTED CURRENCY CALCULATOR ===== -->
 
 
         {{ content }}
