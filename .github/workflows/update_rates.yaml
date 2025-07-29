@@ -1,42 +1,37 @@
-name: Update Currency Rates
+name: Update Currency Rates and Posts
 
 on:
   schedule:
-    # Runs automatically every 12 hours.
     - cron: '0 */12 * * *'
   workflow_dispatch:
-    # Allows you to run this workflow manually from the Actions tab
+   
 
 jobs:
-  update-rates:
+  update-and-generate:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Check out your repository's code
       - name: Check out repo
         uses: actions/checkout@v4
 
-      # Step 2: Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      # Step 3: Install necessary Python packages
       - name: Install dependencies
         run: pip install requests pyyaml
 
-      # Step 4: Run the Python script
-      # This is now a clean, single command. The API key is passed securely.
       - name: Run update script
         env:
           CURRENCY_API_KEY: ${{ secrets.CURRENCY_API_KEY }}
         run: python scripts/update_rates.py
 
-      # Step 5: Commit the updated rates.yml file back to your repository
+      # CRITICAL CHANGE HERE: The action will now commit changes in both _data and _posts.
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Automated: Update currency exchange rates"
-          file_pattern: "_data/rates.yml"
+          commit_message: "Automated: Update currency rates and generate daily posts"
+          # This pattern tells the action to look for the YAML file AND any Markdown files in _posts
+          file_pattern: "_data/rates.yml _posts/*.md"
           commit_user_name: "GitHub Actions Bot"
           commit_user_email: "github-actions-bot@users.noreply.github.com"
