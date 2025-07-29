@@ -61,11 +61,14 @@
         <ul class="mb-0"></ul>
     </div>
 
-    <main role="main" class="site-content">
+   <main role="main" class="site-content">
+
+        <!-- ===== START FINAL LIVE CURRENCY CALCULATOR ===== -->
         <div class="container pt-4 pb-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Currency Converter</h5>
+                    <h5 class="card-title">Live Currency Converter</h5>
+                    <!-- The fieldset is disabled until the rates are loaded -->
                     <fieldset id="currency-calculator-fieldset" disabled>
                         <div id="currency-calculator">
                             <div class="form-row">
@@ -110,7 +113,7 @@
                             </div>
                         </div>
                     </fieldset>
-                     <small id="disclaimer_text" class="text-muted">Rates sourced from the European Central Bank, updated daily.</small>
+                     <small id="disclaimer_text" class="text-muted">Rates sourced from frankfurter.dev, updated daily via the European Central Bank.</small>
                 </div>
             </div>
         </div>
@@ -127,62 +130,72 @@
             
             let liveRates = {};
 
-            // Function to fetch rates from Frankfurter.app
-            async function fetchRates(base = 'USD') {
+            // Function to fetch rates using the correct API endpoint
+            async function fetchRates(baseCurrency) {
                 statusText.textContent = 'Loading latest rates...';
-                // This API doesn't need a key!
-                const apiUrl = `https://api.frankfurter.app/latest?from=${base}`;
+                // Using the correct URL: https://api.frankfurter.dev
+                const apiUrl = `https://api.frankfurter.dev/latest?from=${baseCurrency}`;
 
                 try {
                     const response = await fetch(apiUrl);
+                    if (!response.ok) throw new Error('Network response was not ok.');
+                    
                     const data = await response.json();
                     
-                    // Add the base currency to the rates object
+                    // Store the fetched rates
                     liveRates = data.rates;
+                    // Add the base currency to the rates object since the API doesn't include it in the response
                     liveRates[data.base] = 1;
                     
                     fieldset.disabled = false; // Enable the form
                     statusText.textContent = ''; // Clear loading message
-                    convertCurrency(); // Perform initial conversion
+                    convertCurrency(); // Perform initial conversion after fetching
                 } catch (error) {
                     console.error('Fetch error:', error);
                     statusText.innerHTML = '<span class="text-danger">Could not fetch rates. Please try again later.</span>';
                 }
             }
 
-            // The conversion function
+            // The main conversion function
             function convertCurrency() {
+                // Ensure rates are available before calculating
                 if (Object.keys(liveRates).length === 0) return;
 
                 const amount = parseFloat(amountInput.value);
-                const toCurrency = toSelect.value;
+                const targetCurrency = toSelect.value;
 
+                // If amount is not a valid number, clear the result
                 if (isNaN(amount) || amount <= 0) {
                     resultText.textContent = '';
                     return;
                 }
                 
-                const convertedAmount = amount * liveRates[toCurrency];
+                // Perform the calculation using the stored rates
+                const convertedAmount = amount * liveRates[targetCurrency];
+
+                // Nicely format the result and display it on the page
                 const fromSymbol = fromSelect.options[fromSelect.selectedIndex].text.split(' ')[1];
                 const toSymbol = toSelect.options[toSelect.selectedIndex].text.split(' ')[1];
 
                 resultText.innerHTML = `${amount.toLocaleString()} ${fromSymbol} = <span class="text-primary">${convertedAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span> ${toSymbol}`;
             }
 
-            // Re-fetch rates if the 'from' currency changes
+            // EVENT LISTENERS
+
+            // When the 'From' currency changes, fetch the new set of rates
             fromSelect.addEventListener('change', () => {
                 fetchRates(fromSelect.value);
             });
 
-            // Add other event listeners
+            // When amount or 'To' currency changes, just re-calculate with existing rates
             amountInput.addEventListener('input', convertCurrency);
             toSelect.addEventListener('change', convertCurrency);
 
-            // Initial call to fetch rates based on the default selected 'from' currency
+            // Initial Action: Fetch rates as soon as the page loads
             fetchRates(fromSelect.value);
         });
         </script>
-        <!-- ===== END LIVE CURRENCY CALCULATOR (NO KEY) ===== -->
+        <!-- ===== END FINAL LIVE CURRENCY CALCULATOR ===== -->
 
 
         {{ content }}
