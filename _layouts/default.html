@@ -60,30 +60,30 @@
     <div id="lunrsearchresults">
         <ul class="mb-0"></ul>
     </div>
-        <main role="main" class="site-content">
 
-        <!-- ===== FINAL ROBUST CURRENCY CALCULATOR (ALL CURRENCIES) ===== -->
+    <main role="main" class="site-content">
+
+        <!-- ===== FINAL SEO-OPTIMIZED CURRENCY CALCULATOR ===== -->
         <div class="container pt-4 pb-4">
+            <!-- NEW: Dynamic SEO Heading -->
+            <h2 id="seo-heading" class="text-center mb-4" style="font-size: 1.5rem;"></h2>
+
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Global Currency Converter</h5>
-                    <!-- The fieldset is disabled until the currency list is loaded -->
+                    <h5 class="card-title text-center">Global Currency Converter</h5>
                     <fieldset id="calculator-fieldset" disabled>
                         <div id="currency-calculator">
                             <div class="form-row">
-                                <!-- Amount Input -->
                                 <div class="form-group col-md-12">
                                     <label for="amount">Amount</label>
                                     <input type="number" id="amount" class="form-control" value="100" placeholder="Enter amount">
                                 </div>
-                                <!-- From Currency -->
                                 <div class="form-group col-md-6">
                                     <label for="from_currency">From</label>
                                     <select id="from_currency" class="form-control">
                                         <option>Loading Currencies...</option>
                                     </select>
                                 </div>
-                                <!-- To Currency -->
                                 <div class="form-group col-md-6">
                                     <label for="to_currency">To</label>
                                     <select id="to_currency" class="form-control">
@@ -91,81 +91,113 @@
                                     </select>
                                 </div>
                             </div>
-                            <!-- Convert Button -->
                             <div class="form-group text-center mt-3">
-                                <button id="convert-button" class="btn btn-primary">Convert</button>
+                                <button id="convert-button" class="btn btn-primary w-100">Convert</button>
                             </div>
-                            <!-- Result and Status Messages -->
                             <div id="result_container" class="mt-3 text-center">
-                                <h6 id="result_text" class="text-success font-weight-bold"></h6>
+                                <h6 id="result_text" class="text-success font-weight-bold" style="font-size: 1.25rem;"></h6>
                                 <p id="status_text" class="text-muted"></p>
                             </div>
                         </div>
                     </fieldset>
-                     <small class="text-muted">Rates provided by ExchangeRate-API.com.</small>
+                     <small class="text-muted d-block text-center mt-2">Rates provided by ExchangeRate-API.com.</small>
                 </div>
             </div>
         </div>
+
         <script>
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // --- Data is now injected by Jekyll at build time ---
-    // The 'jsonify' filter correctly formats the data for JavaScript
-    const lastUpdated = "{{ site.data.rates.last_updated_utc | date_to_xmlschema }}";
-    const conversionRates = {{ site.data.rates.rates | jsonify }};
-    
-    const amountInput = document.getElementById('amount');
-    const fromSelect = document.getElementById('from_currency');
-    const toSelect = document.getElementById('to_currency');
-    const convertButton = document.getElementById('convert-button');
-    const resultText = document.getElementById('result_text');
-    const statusText = document.getElementById('status_text');
-    const fieldset = document.getElementById('calculator-fieldset');
-    
-    /**
-     * Populates the dropdowns using the hard-coded data.
-     */
-    function populateCurrencies() {
-        fromSelect.innerHTML = '';
-        toSelect.innerHTML = '';
-        for (const currencyCode in conversionRates) {
-            fromSelect.add(new Option(currencyCode, currencyCode));
-            toSelect.add(new Option(currencyCode, currencyCode));
-        }
-        
-        fromSelect.value = 'USD';
-        toSelect.value = 'EUR';
-        fieldset.disabled = false;
-        statusText.textContent = `Rates last updated: ${new Date(lastUpdated).toLocaleString()}`;
-    }
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Data is injected by Jekyll at build time ---
+            const lastUpdated = "{{ site.data.rates.last_updated_utc | date_to_xmlschema }}";
+            const conversionRates = {{ site.data.rates.rates | jsonify }};
+            const currencyNames = {{ site.data.currency_names | jsonify }}; // NEW: Get currency names
+            
+            const amountInput = document.getElementById('amount');
+            const fromSelect = document.getElementById('from_currency');
+            const toSelect = document.getElementById('to_currency');
+            const convertButton = document.getElementById('convert-button');
+            const resultText = document.getElementById('result_text');
+            const statusText = document.getElementById('status_text');
+            const fieldset = document.getElementById('calculator-fieldset');
+            const seoHeading = document.getElementById('seo-heading'); // NEW: Get SEO heading element
 
-    /**
-     * Performs the conversion instantly using the stored rates. No API call needed.
-     */
-    function performConversion() {
-        const amount = parseFloat(amountInput.value);
-        const fromCurrency = fromSelect.value;
-        const toCurrency = toSelect.value;
+            /**
+             * Populates dropdowns with full currency names.
+             */
+            function populateCurrencies() {
+                fromSelect.innerHTML = '';
+                toSelect.innerHTML = '';
+                for (const currencyCode in conversionRates) {
+                    // NEW: Look up the full name, default to the code if not found
+                    const fullName = currencyNames[currencyCode] || currencyCode;
+                    const optionText = `${currencyCode} - ${fullName}`;
+                    
+                    fromSelect.add(new Option(optionText, currencyCode));
+                    toSelect.add(new Option(optionText, currencyCode));
+                }
+                
+                // Set default values
+                fromSelect.value = 'USD';
+                toSelect.value = 'PKR';
+                
+                fieldset.disabled = false;
+                statusText.textContent = `Rates last updated: ${new Date(lastUpdated).toLocaleString()}`;
+                updateSeoHeading(); // NEW: Set initial SEO heading
+            }
 
-        if (isNaN(amount) || amount <= 0) {
-            resultText.textContent = '';
-            return;
-        }
-        
-        const rateFrom = conversionRates[fromCurrency];
-        const rateTo = conversionRates[toCurrency];
-        const convertedAmount = (amount / rateFrom) * rateTo;
-        
-        resultText.innerHTML = `${amount.toLocaleString()} ${fromCurrency} = <span class="text-primary">${convertedAmount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 4})}</span> ${toCurrency}`;
-    }
+            /**
+             * NEW: Updates the H2 heading for SEO purposes.
+             */
+            function updateSeoHeading() {
+                const fromCode = fromSelect.value;
+                const toCode = toSelect.value;
+                const fromName = currencyNames[fromCode] || fromCode;
+                const toName = currencyNames[toCode] || toCode;
+                
+                const today = new Date();
+                const formattedDate = today.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
 
-    // Event listener for the button
-    convertButton.addEventListener('click', performConversion);
-    
-    // Initial Action: Set up the calculator with the embedded data
-    populateCurrencies();
-});
-</script>
+                seoHeading.textContent = `${fromName} to ${toName} Rate Today - ${formattedDate}`;
+            }
+
+            /**
+             * Performs the conversion using the stored rates.
+             */
+            function performConversion() {
+                const amount = parseFloat(amountInput.value);
+                const fromCurrency = fromSelect.value;
+                const toCurrency = toSelect.value;
+
+                if (isNaN(amount) || amount <= 0) {
+                    resultText.textContent = '';
+                    statusText.innerHTML = '<span class="text-danger">Please enter a valid amount.</span>';
+                    return;
+                }
+                
+                const rateFrom = conversionRates[fromCurrency];
+                const rateTo = conversionRates[toCurrency];
+                const convertedAmount = (amount / rateFrom) * rateTo;
+                
+                resultText.innerHTML = `${amount.toLocaleString()} ${fromCurrency} = <strong class="text-primary">${convertedAmount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 4})}</strong> ${toCurrency}`;
+                statusText.textContent = ''; // Clear any error messages
+                updateSeoHeading(); // NEW: Update SEO heading on every conversion
+            }
+
+            // --- Event Listeners ---
+            convertButton.addEventListener('click', performConversion);
+            
+            // NEW: Also update the SEO heading when dropdowns are changed
+            fromSelect.addEventListener('change', updateSeoHeading);
+            toSelect.addEventListener('change', updateSeoHeading);
+            
+            // --- Initial Action ---
+            populateCurrencies();
+        });
+        </script>
+        <!-- ===== END OF CALCULATOR ===== -->
+
+
         {{ content }}
     </main>
 
