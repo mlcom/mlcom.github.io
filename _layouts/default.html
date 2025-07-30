@@ -235,29 +235,18 @@
                 updateSeoHeading();
             }
 
-            /**
-             * Updates the H1 heading for SEO purposes.
-             */
-            function updateSeoHeading() {
+             function updateSeoHeading() {
                 const fromCode = fromSelect.value;
                 const toCode = toSelect.value;
                 const fromName = currencyNames[fromCode] || fromCode;
                 const toName = currencyNames[toCode] || toCode;
                 
                 const today = new Date();
-                const formattedDate = today.toLocaleDateString('en-US', { 
-                    day: 'numeric', 
-                    month: 'long', 
-                    year: 'numeric' 
-                });
+                const formattedDate = today.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
 
                 seoHeading.textContent = `${fromName} to ${toName} Exchange Rate - ${formattedDate}`;
-                document.title = `${fromName} to ${toName} Converter | ${formattedDate} | ${site.name}`;
             }
-
-            /**
-             * Performs the conversion using the stored rates.
-             */
+            
             function performConversion() {
                 const amount = parseFloat(amountInput.value);
                 const fromCurrency = fromSelect.value;
