@@ -2,115 +2,141 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Enhanced Viewport for Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Convert Saudi Riyal to Pakistani Rupee with our real-time SAR to PKR exchange rate calculator for July 2025. Get accurate rates and historical trends.">
-    <meta name="keywords" content="saudi riyal to pakistani rupee exchange rate july 2025, sar to pkr exchange rate, 1 sar to pkr rate, currency converter, forex rates, saudi riyal exchange rate pakistan">
-    <meta name="author" content="ML Community">
-    <meta name="robots" content="index, follow">
-    <!-- Open Graph Tags for Social Media -->
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" as="style">
+    <link rel="preload" href="{{site.baseurl}}/assets/css/main.css" as="style">
+    <link rel="preload" href="https://code.jquery.com/jquery-3.3.1.min.js" as="script">
+    
+    <!-- Enhanced Meta Tags -->
+    <meta name="description" content="Real-time Saudi Riyal to Pakistani Rupee (SAR to PKR) exchange rate calculator for July 2025. Get accurate currency conversion with historical trends.">
+    <meta name="keywords" content="SAR to PKR, Saudi Riyal to Pakistani Rupee, currency converter, forex rates, exchange rate today, 1 SAR to PKR, money transfer rates">
+    
+    <!-- Improved Author and Copyright -->
+    <meta name="author" content="{{site.name}}">
+    <meta name="copyright" content="Copyright © {{ 'now' | date: "%Y" }} {{site.name}}">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    
+    <!-- Enhanced Open Graph Tags -->
     <meta property="og:title" content="SAR to PKR Exchange Rate July 2025 | {{site.name}}">
-    <meta property="og:description" content="Convert SAR to PKR with real-time exchange rates for 2025 using our currency converter. Check historical trends and plan your transactions.">
+    <meta property="og:description" content="Convert SAR to PKR with real-time exchange rates for July 2025. Check historical trends and plan your transactions.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{site.baseurl}}{{page.url}}">
-    <meta property="og:image" content="{{site.baseurl}}/assets/sar-to-pkr-rate-today.jpg">
+    <meta property="og:image" content="{{site.baseurl}}/assets/images/sar-to-pkr-rate-today.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="{{site.name}}">
-    <!-- Twitter Card Tags -->
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Improvements -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SAR to PKR Exchange Rate July 2025 | {{site.name}}">
-    <meta name="twitter:description" content="Convert Saudi Riyal to Pakistani Rupee with real-time rates for 2025. Use our currency converter for accurate SAR to PKR conversions.">
+    <meta name="twitter:description" content="Real-time Saudi Riyal to Pakistani Rupee converter with historical data for July 2025.">
     <meta name="twitter:image" content="{{site.baseurl}}/assets/images/sar-to-pkr-rate-today.jpg">
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7391081469827045"
-            crossorigin="anonymous"></script>
-    <title>{{page.title}} | {{site.name}}</title>
-
-    {% seo %}
-
+    <meta name="twitter:site" content="@{{site.twitter_username}}">
+    <meta name="twitter:creator" content="@{{site.twitter_username}}">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{site.baseurl}}{{page.url}}">
+    
+    <!-- Favicon and App Icons -->
     <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}/{{site.favicon}}">
-
-    <!-- Font Awesome Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{site.baseurl}}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{site.baseurl}}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{site.baseurl}}/favicon-16x16.png">
+    <link rel="manifest" href="{{site.baseurl}}/site.webmanifest">
+    
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    
+    <!-- Ads Script with Async -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7391081469827045" crossorigin="anonymous"></script>
+    
+    <title>{{page.title}} | {{site.name}}</title>
+    
+    {% seo %}
+    
+    <!-- Font Awesome with Preconnect -->
+    <link rel="preconnect" href="https://use.fontawesome.com">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-    <!-- Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
-
-    <!-- Bootstrap Modified -->
+    
+    <!-- Google Fonts with Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS with Preload -->
     <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
-
-    <!-- Theme Stylesheet -->
     <link rel="stylesheet" href="{{site.baseurl}}/assets/css/theme.css">
-
-    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-
+    
+    <!-- Deferred JS Loading -->
+    <script defer src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    
     {% include tracking-header.html %}
 </head>
 
-<body class="{% if page.url == "/" %} homefirstpage {% endif %}">
-
-    <!-- Navbar -->
-    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="{{ site.baseurl }}/index.html"><strong>{{site.name}}</strong></a>
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse" id="navbarColor02" style="">
-            <ul class="navbar-nav mr-auto d-flex align-items-center">
-               {% include menu-header.html %}
-            </ul>
-            <ul class="navbar-nav ml-auto d-flex align-items-center">
-                {% include search-lunr.html %}
-            </ul>
+<body class="{% if page.url == '/' %}homefirstpage{% endif %}">
+    <!-- Navbar with ARIA Labels -->
+    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="{{ site.baseurl }}/index.html" aria-label="Home"><strong>{{site.name}}</strong></a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto d-flex align-items-center">
+                    {% include menu-header.html %}
+                </ul>
+                <ul class="navbar-nav ml-auto d-flex align-items-center">
+                    {% include search-lunr.html %}
+                </ul>
+            </div>
         </div>
-    </div>
     </nav>
 
     <!-- Search Results -->
-    <div id="lunrsearchresults">
+    <div id="lunrsearchresults" aria-live="polite">
         <ul class="mb-0"></ul>
     </div>
 
     <main role="main" class="site-content">
-
-        <!-- ===== FINAL SEO-OPTIMIZED CURRENCY CALCULATOR ===== -->
+        <!-- ===== OPTIMIZED CURRENCY CALCULATOR ===== -->
         <div class="container pt-4 pb-4">
-            <!-- Dynamic SEO Heading -->
-            <h2 id="seo-heading" class="text-center mb-4" style="font-size: 1.5rem;"></h2>
+            <!-- Dynamic SEO Heading with Proper Hierarchy -->
+            <h1 id="seo-heading" class="text-center mb-4" style="font-size: 1.8rem; line-height: 1.3;"></h1>
 
-            <div class="card">
+            <div class="card shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title text-center">Global Currency Converter</h5>
+                    <h2 class="card-title text-center h5">Global Currency Converter</h2>
                     <fieldset id="calculator-fieldset" disabled>
                         <div id="currency-calculator">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="amount">Amount</label>
-                                    <input type="number" id="amount" class="form-control" value="100" placeholder="Enter amount">
+                                    <label for="amount" class="font-weight-bold">Amount</label>
+                                    <input type="number" id="amount" class="form-control" value="100" placeholder="Enter amount" aria-label="Amount to convert">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="from_currency">From</label>
-                                    <select id="from_currency" class="form-control">
+                                    <label for="from_currency" class="font-weight-bold">From Currency</label>
+                                    <select id="from_currency" class="form-control" aria-label="Select source currency">
                                         <option>Loading Currencies...</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="to_currency">To</label>
-                                    <select id="to_currency" class="form-control">
+                                    <label for="to_currency" class="font-weight-bold">To Currency</label>
+                                    <select id="to_currency" class="form-control" aria-label="Select target currency">
                                         <option>Loading Currencies...</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group text-center mt-3">
-                                <button id="convert-button" class="btn btn-primary w-100">Convert</button>
+                                <button id="convert-button" class="btn btn-primary w-100 py-2" aria-label="Convert currency">Convert</button>
                             </div>
                             <div id="result_container" class="mt-3 text-center">
-                                <h6 id="result_text" class="text-success font-weight-bold" style="font-size: 1.25rem;"></h6>
-                                <p id="status_text" class="text-muted"></p>
+                                <div id="result_text" class="text-success font-weight-bold h4" style="font-size: 1.5rem;" aria-live="polite"></div>
+                                <p id="status_text" class="text-muted small"></p>
                             </div>
                         </div>
                     </fieldset>
@@ -118,29 +144,60 @@
                 </div>
             </div>
 
-            
-            <img src="{{site.baseurl}}/assets/images/usd-to-pkr-rate-today.jpg" alt="Saudi Riyal to Pakistani Rupee Exchange Rate July 2025" class="img-fluid mb-3 mt-3" style="max-width: 100%; height: auto;">
-
-            
+           
             <div class="container mt-4">
-                <h3>Saudi Riyal to Pakistani Rupee Exchange Rate - July 2025</h3>
-                <p>Stay updated with the latest SAR to PKR exchange rates for July 2025. Our Global Currency Converter provides real-time rates for converting 1 SAR to PKR and more. Historical data indicates the SAR to PKR exchange rate fluctuated between 74.28 and 76.19 PKR in 2025, with an average of 75.02 PKR over the past 180 days. Use our tool to plan your transactions with confidence.</p>
-                <p>Key factors influencing the SAR to PKR exchange rate include Saudi Arabia’s fixed exchange rate system (pegged to the USD at 3.75 SAR) and Pakistan’s managed float system, affected by inflation and trade balances. Planning a trip from Saudi Arabia to Pakistan? Use our SAR to PKR converter to budget your travel expenses. For Pakistani expatriates in Saudi Arabia, convert your remittances with ease.</p>
+                <h2 class="h4">Saudi Riyal to Pakistani Rupee Exchange Rate - July 2025</h2>
+                <p>Stay updated with the latest <strong>SAR to PKR exchange rates</strong> for July 2025. Our Global Currency Converter provides real-time rates for converting 1 SAR to PKR and more. Historical data indicates the SAR to PKR exchange rate fluctuated between 74.28 and 76.19 PKR in 2025, with an average of 75.02 PKR over the past 180 days. Use our tool to plan your transactions with confidence.</p>
+                
+                <h3 class="h5 mt-4">Key Factors Affecting SAR to PKR Rates</h3>
+                <p>Several economic factors influence the SAR to PKR exchange rate:</p>
+                <ul class="pl-3">
+                    <li>Saudi Arabia's fixed exchange rate system (pegged to USD at 3.75 SAR)</li>
+                    <li>Pakistan's managed float system</li>
+                    <li>Inflation rates in both countries</li>
+                    <li>Trade balances between Saudi Arabia and Pakistan</li>
+                    <li>Remittance flows from Saudi Arabia to Pakistan</li>
+                </ul>
+                
+                <h3 class="h5 mt-4">Who Benefits From This Converter?</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h4 class="h6 card-title">Pakistani Expatriates</h4>
+                                <p class="card-text">Convert your Saudi Riyal earnings to Pakistani Rupees for remittances with accurate rates.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h4 class="h6 card-title">Travelers</h4>
+                                <p class="card-text">Plan your travel budget between Saudi Arabia and Pakistan with up-to-date conversion rates.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Internal Linking -->
+            <!-- Enhanced Internal Linking -->
             <div class="container mt-4">
-                <h4>Explore More</h4>
-                <ul>
-                    <li><a href="{{site.baseurl}}/today-aed-to-pkr-prices-updated/">UAE AED to PKR Rates</a></li>
-                    <li><a href="{{site.baseurl}}/today-usd-to-pkr-prices-updated/">Pound to PKR</a></li>
-                </ul>
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Explore More Currency Tools</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="{{site.baseurl}}/today-aed-to-pkr-prices-updated/" class="text-primary">UAE Dirham (AED) to PKR Exchange Rate</a> - Current rates and converter</li>
+                            <li class="mb-2"><a href="{{site.baseurl}}/today-usd-to-pkr-prices-updated/" class="text-primary">US Dollar (USD) to PKR Exchange Rate</a> - Updated daily</li>
+                            <li><a href="{{site.baseurl}}/currency-converter-guide/" class="text-primary">How to Get the Best Exchange Rates</a> - Money transfer tips</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <!-- Optimized Script -->
         <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
             // --- Data is injected by Jekyll at build time ---
             const lastUpdated = "{{ site.data.rates.last_updated_utc | date_to_xmlschema }}";
             const conversionRates = {{ site.data.rates.rates | jsonify }};
@@ -161,7 +218,13 @@
             function populateCurrencies() {
                 fromSelect.innerHTML = '';
                 toSelect.innerHTML = '';
-                for (const currencyCode in conversionRates) {
+                
+                // Sort currencies alphabetically
+                const sortedCurrencies = Object.keys(conversionRates).sort((a, b) => {
+                    return currencyNames[a].localeCompare(currencyNames[b]);
+                });
+                
+                for (const currencyCode of sortedCurrencies) {
                     const fullName = currencyNames[currencyCode] || currencyCode;
                     const optionText = `${currencyCode} - ${fullName}`;
                     
@@ -169,8 +232,9 @@
                     toSelect.add(new Option(optionText, currencyCode));
                 }
                 
-                fromSelect.value = 'SAR'; // Default to SAR
-                toSelect.value = 'PKR'; // Default to PKR
+                // Set default values
+                fromSelect.value = 'SAR';
+                toSelect.value = 'PKR';
                 
                 fieldset.disabled = false;
                 statusText.textContent = `Rates last updated: ${new Date(lastUpdated).toLocaleString()}`;
@@ -178,7 +242,7 @@
             }
 
             /**
-             * Updates the H2 heading for SEO purposes.
+             * Updates the H1 heading for SEO purposes.
              */
             function updateSeoHeading() {
                 const fromCode = fromSelect.value;
@@ -187,9 +251,14 @@
                 const toName = currencyNames[toCode] || toCode;
                 
                 const today = new Date();
-                const formattedDate = today.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+                const formattedDate = today.toLocaleDateString('en-US', { 
+                    day: 'numeric', 
+                    month: 'long', 
+                    year: 'numeric' 
+                });
 
                 seoHeading.textContent = `${fromName} to ${toName} Exchange Rate - ${formattedDate}`;
+                document.title = `${fromName} to ${toName} Converter | ${formattedDate} | ${site.name}`;
             }
 
             /**
@@ -200,47 +269,126 @@
                 const fromCurrency = fromSelect.value;
                 const toCurrency = toSelect.value;
 
-                if (isNaN(amount) || amount <= 0) {
+                if (isNaN(amount) {
                     resultText.textContent = '';
                     statusText.innerHTML = '<span class="text-danger">Please enter a valid amount.</span>';
                     return;
                 }
                 
+                if (amount <= 0) {
+                    resultText.textContent = '';
+                    statusText.innerHTML = '<span class="text-danger">Amount must be greater than zero.</span>';
+                    return;
+                }
+                
                 const rateFrom = conversionRates[fromCurrency];
                 const rateTo = conversionRates[toCurrency];
+                
+                if (!rateFrom || !rateTo) {
+                    resultText.textContent = '';
+                    statusText.innerHTML = '<span class="text-danger">Currency data not available. Please try again later.</span>';
+                    return;
+                }
+                
                 const convertedAmount = (amount / rateFrom) * rateTo;
                 
-                resultText.innerHTML = `${amount.toLocaleString()} ${fromCurrency} = <strong class="text-primary">${convertedAmount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 4})}</strong> ${toCurrency}`;
-                statusText.textContent = '';
+                resultText.innerHTML = `
+                    ${amount.toLocaleString(undefined, {maximumFractionDigits: 2})} 
+                    ${fromCurrency} = 
+                    <strong class="text-primary">
+                        ${convertedAmount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 4})}
+                    </strong> 
+                    ${toCurrency}
+                `;
+                
+                statusText.textContent = `1 ${fromCurrency} = ${(rateTo / rateFrom).toFixed(6)} ${toCurrency}`;
                 updateSeoHeading();
+                
+                // Track conversion in analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'conversion', {
+                        'event_category': 'Currency',
+                        'event_label': `${fromCurrency}_to_${toCurrency}`,
+                        'value': amount
+                    });
+                }
             }
 
             // --- Event Listeners ---
             convertButton.addEventListener('click', performConversion);
             fromSelect.addEventListener('change', updateSeoHeading);
             toSelect.addEventListener('change', updateSeoHeading);
+            amountInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performConversion();
+                }
+            });
             
-            // --- Initial Action ---
+            // --- Initial Setup ---
             populateCurrencies();
+            
+            // Focus amount field for better UX
+            setTimeout(() => {
+                amountInput.focus();
+                amountInput.select();
+            }, 500);
         });
         </script>
 
-        <!-- Schema.org Structured Data -->
+        <!-- Enhanced Schema.org Structured Data -->
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "name": "Saudi Riyal to Pakistani Rupee Exchange Rate July 2025",
             "description": "Convert SAR to PKR with real-time exchange rates for July 2025 using our currency converter.",
+            "url": "{{site.baseurl}}{{page.url}}",
             "publisher": {
                 "@type": "Organization",
-                "name": "ML Community"
+                "name": "{{site.name}}",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "{{site.baseurl}}/assets/images/logo.png",
+                    "width": "600",
+                    "height": "60"
+                }
             },
             "mainEntity": {
-                "@type": "Service",
-                "serviceType": "Currency Conversion",
-                "name": "SAR to PKR Currency Converter, AED to PKR",
-                "description": "Real-time Saudi Riyal (SAR) to Pakistani Rupee (PKR) exchange rate calculator for July 2025."
+                "@type": "CurrencyConverterService",
+                "name": "SAR to PKR Currency Converter",
+                "description": "Real-time Saudi Riyal (SAR) to Pakistani Rupee (PKR) exchange rate calculator",
+                "currenciesSupported": "SAR, PKR, USD, AED, EUR, GBP",
+                "operatingSystem": "Web application",
+                "featureList": "Real-time exchange rates, historical trends, amount conversion",
+                "applicationCategory": "FinanceApplication",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                }
+            },
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "{{site.baseurl}}/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Currency Converter",
+                        "item": "{{site.baseurl}}/currency-converter/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "SAR to PKR",
+                        "item": "{{site.baseurl}}{{page.url}}"
+                    }
+                ]
             }
         }
         </script>
@@ -249,24 +397,29 @@
         {{ content }}
     </main>
 
-    <!-- Scripts: popper, bootstrap, theme, lunr -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-    <script src="{{site.baseurl}}/assets/js/theme.js"></script>
-
-    <!-- Footer -->
-    <footer class="bg-white border-top p-3 text-muted small">
+    <!-- Footer with Semantic Markup -->
+    <footer class="bg-white border-top p-3 text-muted small" role="contentinfo">
         <div class="container">
-        <div class="row align-items-center justify-content-between">
-            <div>
-                <span class="navbar-brand mr-2 mb-0"><strong>ML Community</strong></span>
-                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-6">
+                    <span class="navbar-brand mr-2 mb-0"><strong>{{site.name}}</strong></span>
+                    <span>Copyright © <script>document.write(new Date().getFullYear())</script>. All rights reserved.</span>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="{{site.baseurl}}/privacy-policy/" class="text-muted">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="{{site.baseurl}}/terms/" class="text-muted">Terms of Service</a></li>
+                        <li class="list-inline-item"><a href="{{site.baseurl}}/contact/" class="text-muted">Contact Us</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-        </div>
     </footer>
+
+    <!-- Optimized Script Loading -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script defer src="{{site.baseurl}}/assets/js/theme.js"></script>
 
     {% include tracking-footer.html %}
 </body>
