@@ -219,13 +219,7 @@
             function populateCurrencies() {
                 fromSelect.innerHTML = '';
                 toSelect.innerHTML = '';
-                
-                // Sort currencies alphabetically
-                const sortedCurrencies = Object.keys(conversionRates).sort((a, b) => {
-                    return currencyNames[a].localeCompare(currencyNames[b]);
-                });
-                
-                for (const currencyCode of sortedCurrencies) {
+                for (const currencyCode in conversionRates) {
                     const fullName = currencyNames[currencyCode] || currencyCode;
                     const optionText = `${currencyCode} - ${fullName}`;
                     
@@ -233,9 +227,8 @@
                     toSelect.add(new Option(optionText, currencyCode));
                 }
                 
-                // Set default values
-                fromSelect.value = 'SAR';
-                toSelect.value = 'PKR';
+                fromSelect.value = 'SAR'; // Default to SAR
+                toSelect.value = 'PKR'; // Default to PKR
                 
                 fieldset.disabled = false;
                 statusText.textContent = `Rates last updated: ${new Date(lastUpdated).toLocaleString()}`;
