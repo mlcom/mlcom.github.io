@@ -1,14 +1,12 @@
 <script src="{{site.baseurl}}/assets/js/lunr.js"></script>
-$(function() {
-    $("#lunrsearchresults").on('click', '#btnx', function () {
-    $('#lunrsearchresults').hide( 1000 );
-    $( "body" ).removeClass( "modal-open" );
-});
-});
-
-
 
 <script>
+$(function() {
+    $("#lunrsearchresults").on('click', '#btnx', function () {
+        $('#lunrsearchresults').hide( 1000 );
+        $( "body" ).removeClass( "modal-open" );
+    });
+});
    
 {% assign counter = 0 %}
 var documents = [{% for page in site.pages %}{% if page.url contains '.xml' or page.url contains 'assets' %}{% else %}{
