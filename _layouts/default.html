@@ -104,11 +104,8 @@
     </div>
 
     <main role="main" class="site-content">
-        <!-- ===== OPTIMIZED CURRENCY CALCULATOR ===== -->
         <div class="container pt-4 pb-4">
-            <!-- Dynamic SEO Heading with Proper Hierarchy -->
             <h1 id="seo-heading" class="text-center mb-4" style="font-size: 1.8rem; line-height: 1.3;"></h1>
-
             <div class="card shadow-sm">
                 <div class="card-body">
                     <h2 class="card-title text-center h5">Global Currency Converter</h2>
@@ -144,62 +141,10 @@
                     <small class="text-muted d-block text-center mt-2">Rates updated daily</small>
                 </div>
             </div>
-
-           
-            <div class="container mt-4">
-                <h2 class="h4">Saudi Riyal to Pakistani Rupee Exchange Rate - July 2025</h2>
-                <p>Stay updated with the latest <strong>SAR to PKR exchange rates</strong> for July 2025. Our Global Currency Converter provides real-time rates for converting 1 SAR to PKR and more. Historical data indicates the SAR to PKR exchange rate fluctuated between 74.28 and 76.19 PKR in 2025, with an average of 75.02 PKR over the past 180 days. Use our tool to plan your transactions with confidence.</p>
-                
-                <h3 class="h5 mt-4">Key Factors Affecting SAR to PKR Rates</h3>
-                <p>Several economic factors influence the SAR to PKR exchange rate:</p>
-                <ul class="pl-3">
-                    <li>Saudi Arabia's fixed exchange rate system (pegged to USD at 3.75 SAR)</li>
-                    <li>Pakistan's managed float system</li>
-                    <li>Inflation rates in both countries</li>
-                    <li>Trade balances between Saudi Arabia and Pakistan</li>
-                    <li>Remittance flows from Saudi Arabia to Pakistan</li>
-                </ul>
-                
-                <h3 class="h5 mt-4">Who Benefits From This Converter?</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h4 class="h6 card-title">Pakistani Expatriates</h4>
-                                <p class="card-text">Convert your Saudi Riyal earnings to Pakistani Rupees for remittances with accurate rates.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h4 class="h6 card-title">Travelers</h4>
-                                <p class="card-text">Plan your travel budget between Saudi Arabia and Pakistan with up-to-date conversion rates.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Enhanced Internal Linking -->
-            <div class="container mt-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="h5 card-title">Explore More Currency Tools</h3>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><a href="{{site.baseurl}}/today-aed-to-pkr-prices-updated/" class="text-primary">UAE Dirham (AED) to PKR Exchange Rate</a> - Current rates and converter</li>
-                            <li class="mb-2"><a href="{{site.baseurl}}/today-usd-to-pkr-prices-updated/" class="text-primary">US Dollar (USD) to PKR Exchange Rate</a> - Updated daily</li>
-                            <li><a href="{{site.baseurl}}/currency-converter-guide/" class="text-primary">How to Get the Best Exchange Rates</a> - Money transfer tips</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Optimized Script -->
+            {{ content }}
         <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- Data is injected by Jekyll at build time ---
+            
             const lastUpdated = "{{ site.data.rates.last_updated_utc | date_to_xmlschema }}";
             const conversionRates = {{ site.data.rates.rates | jsonify }};
             const currencyNames = {{ site.data.currency_names | jsonify }};
@@ -213,9 +158,7 @@
             const fieldset = document.getElementById('calculator-fieldset');
             const seoHeading = document.getElementById('seo-heading');
 
-            /**
-             * Populates dropdowns with full currency names.
-             */
+            
             function populateCurrencies() {
                 fromSelect.innerHTML = '';
                 toSelect.innerHTML = '';
@@ -307,18 +250,13 @@
                 }
             });
             
-            // --- Initial Setup ---
             populateCurrencies();
-            
-            // Focus amount field for better UX
             setTimeout(() => {
                 amountInput.focus();
                 amountInput.select();
             }, 500);
         });
         </script>
-
-        <!-- Enhanced Schema.org Structured Data -->
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -374,10 +312,7 @@
                 ]
             }
         }
-        </script>
-        <!-- ===== END OF CALCULATOR ===== -->
-
-        {{ content }}
+        </script> 
     </main>
 
     <!-- Footer with Semantic Markup -->
