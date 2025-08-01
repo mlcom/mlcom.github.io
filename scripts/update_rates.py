@@ -122,7 +122,7 @@ def main():
 
             # Define file paths and names
             post_dir = "_posts"
-            file_slug = f"today-{from_full.lower().replace(' ','-')}-to-{to_code.lower()}-{month_name.lower()}-{year}-prices-updated-{from_code.lower()}-to-{to_code.lower()}"
+            file_slug = f"today-{from_full.lower().replace(' ','-')}-to-{to_code.lower()}-exchange-rate-{month_name.lower()}-{year}-prices-updated-{from_code.lower()}-to-{to_code.lower()}"
             filename = f"{date_slug}-{file_slug}.md"
             filepath = os.path.join(post_dir, filename)
 
