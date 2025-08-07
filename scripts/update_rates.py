@@ -1,94 +1,89 @@
-# scripts/update_rates.py
-
 import os
 import requests
 import yaml
 import glob
 from datetime import datetime, timezone
+import random
 
 # --- CONFIGURATION ---
-# Define the posts you want to generate. You can add more dictionaries to this list.
-POST_CONFIG = [
-    {
-        'from_code': 'SAR',
-        'to_code': 'PKR',
-        'from_full': 'Saudi Riyal',
-        'to_full': 'Pakistani Rupee',
-        'author': 'jane', # Author for the post front matter
-        'image': 'assets/images/sar-to-pkr-rate-today.jpg'
-    },
-    {
-        'from_code': 'AED',
-        'to_code': 'PKR',
-        'from_full': 'UAE Dirham',
-        'to_full': 'Pakistani Rupee',
-        'author': 'jane',
-        'image': 'assets/images/aed-to-pkr-rate-today.jpg'
-    },
-    {
-        'from_code': 'USD',
-        'to_code': 'PKR',
-        'from_full': 'US Dollar',
-        'to_full': 'Pakistani Rupee',
-        'author': 'jane',
-        'image': 'assets/images/usd-to-pkr-rate-today.jpg'
-    }
-    # Add more currency pairs here as needed
-]
+# Load the post generation config from a YAML file
+with open('_data/post_generator_config.yml', 'r') as f:
+    POST_CONFIG = yaml.safe_load(f)['post_configs']
 
 def generate_conversion_table(rate, from_code, to_code):
     """Generates a Markdown table for various conversion amounts."""
-    amounts = [1, 2, 5, 10, 20, 50, 100, 500, 1000, 5000, 10000, 50000, 100000]
+    amounts = [1, 5, 10, 25, 50, 100, 500, 1000, 5000, 10000]
     table = f"| {from_code} | {to_code} |\n"
     table += "| --- | --- |\n"
     for amount in amounts:
         converted = amount * rate
-        table += f"| {amount:,} {from_code} | Rs. {converted:,.2f} |\n"
+        table += f"| {amount:,} {from_code} | {to_code} {converted:,.2f} |\n"
     return table
+
+def generate_faqs(faqs, rate):
+    """Generates a Markdown formatted FAQ section."""
+    faq_content = "## Frequently Asked Questions (FAQs)\n\n"
+    for faq in faqs:
+        # Replace placeholder for dynamic value if it exists
+        answer = faq['answer'].replace('[calculated_value]', f"{1000 * rate:,.2f}")
+        faq_content += f"### {faq['question']}\n\n{answer}\n\n"
+    return faq_content
 
 def generate_post_content(config, rate, date_str):
     """Generates the full Markdown content for a blog post."""
     from_code, to_code = config['from_code'], config['to_code']
     from_full, to_full = config['from_full'], config['to_full']
 
-    # Generate the dynamic parts
-    title = f"{from_full} {from_code} to {to_full} {to_code} Rate Today – {date_str}"
-    h1_title = f"{from_full} to {to_full} Exchange Rate – {date_str}"
-    rate_str = f"1 {from_code} = {rate:,.2f} {to_code}"
-    table = generate_conversion_table(rate, from_code, to_code)
+    # Title variations for better SEO
+    title_templates = [
+        f"{from_full} ({from_code}) to {to_full} ({to_code}) Rate Today – {date_str}",
+        f"Today's {from_code} to {to_code} Exchange Rate: {date_str}",
+        f"Live {from_full} to {to_full} Rate on {date_str}",
+    ]
+    title = random.choice(title_templates)
     
-    # This is the Markdown template for the post
+    h1_title = f"{from_full} to {to_full} Exchange Rate – {date_str}"
+    rate_str = f"**1 {from_code} = {rate:,.2f} {to_code}**"
+    table = generate_conversion_table(rate, from_code, to_code)
+    faqs = generate_faqs(config.get('faqs', []), rate)
+    
     content = f"""---
 layout: post
 title:  '{title}'
 author: {config['author']}
-categories: [ {from_code.lower()} to {to_code.lower()} ]
+categories: [ {from_code.lower()}-to-{to_code.lower()} ]
 image: {config['image']}
-tags: [{from_code.lower()},{to_code.lower()}]
+tags: {config.get('keywords', [from_code.lower(), to_code.lower()])}
 ---
 
 # {h1_title}
 
-If you’re looking for the latest exchange rate of {from_full} ({from_code}) to {to_full} ({to_code}), then you’re in the right place. As of {date_str}, the mid-market exchange rate stands at:
+For anyone looking to convert {from_full} ({from_code}) to {to_full} ({to_code}), staying updated with the latest exchange rate is essential. As of {date_str}, the current mid-market rate is:
 
-**{rate_str}**
+{rate_str}
 
-This rate is updated as per reliable financial data sources and is helpful for anyone sending money, planning travel, or doing business involving {from_code} to {to_code} conversions.
+This rate is a benchmark for currency conversion and is sourced from reliable global financial data providers.
 
 {table}
 
-## Why Keeping Track of Exchange Rates Matters
+## Understanding Exchange Rate Fluctuations
 
-Exchange rates can fluctuate daily due to global economic conditions, making it crucial to stay informed. The rate provided here reflects mid-market values and may differ slightly based on the exchange service or bank you use.
+Exchange rates are dynamic and can change due to a variety of economic and geopolitical factors. The rate provided here is the mid-market rate, which means it's the midpoint between the buy and sell rates on the global currency markets. When you exchange money through a bank or a remittance service, they will typically offer a rate that includes a small margin.
+
+{faqs}
+
+*Disclaimer: The exchange rates provided are for informational purposes only and are subject to change. For the most accurate rates, please consult with your financial institution or a currency exchange service.*
 """
     return content
 
 def main():
     """Main function to update rates and generate posts."""
     try:
-        # --- JOB 1: UPDATE rates.yml (Existing Logic) ---
         print("Starting Job 1: Updating rates.yml")
-        api_key = os.environ['CURRENCY_API_KEY']
+        api_key = os.environ.get('CURRENCY_API_KEY')
+        if not api_key:
+            raise Exception("CURRENCY_API_KEY environment variable not set.")
+            
         url = f"https://v6.exchangerate-api.com/v6/{api_key}/latest/USD"
         response = requests.get(url)
         response.raise_for_status()
@@ -106,41 +101,38 @@ def main():
             yaml.dump(output_data, f)
         print("Successfully updated _data/rates.yml")
 
-        # --- JOB 2: GENERATE MARKDOWN POSTS (New Logic) ---
         print("\nStarting Job 2: Generating Markdown posts")
         today = datetime.now(timezone.utc)
         date_slug = today.strftime('%Y-%m-%d')
         date_str_formatted = today.strftime('%d %B %Y')
-        day, month_name, year = date_str_formatted.split()
+
         for config in POST_CONFIG:
             from_code, to_code = config['from_code'], config['to_code']
-            from_full, to_full = config['from_full'], config['to_full']
             print(f"--- Processing post for {from_code} to {to_code} ---")
 
-            # Calculate the specific exchange rate
-            rate = (1 / master_rates[from_code]) * master_rates[to_code]
+            if from_code not in master_rates or to_code not in master_rates:
+                print(f"Warning: Currency code not found in API rates. Skipping {from_code} to {to_code}.")
+                continue
 
-            # Define file paths and names
+            rate = master_rates[to_code] / master_rates[from_code]
+            
             post_dir = "_posts"
-            file_slug = f"today-{from_full.lower().replace(' ','-')}-to-{to_code.lower()}-exchange-rate-{month_name.lower()}-{year}-prices-updated-{from_code.lower()}-to-{to_code.lower()}"
+            file_slug = f"daily-{from_code.lower()}-to-{to_code.lower()}-rate"
             filename = f"{date_slug}-{file_slug}.md"
             filepath = os.path.join(post_dir, filename)
 
-            # Clean up old posts for the same currency pair to avoid duplicates
-            old_files = glob.glob(os.path.join(post_dir, f"*-{file_slug}.md"))
-            for old_file in old_files:
-                if old_file != filepath: # Don't delete the file we are about to create
+            # Clean up old posts for the same currency pair
+            for old_file in glob.glob(os.path.join(post_dir, f"*-{file_slug}.md")):
+                if old_file != filepath:
                     print(f"Deleting old post: {old_file}")
                     os.remove(old_file)
             
-            # Generate the full content for the new post
             post_content = generate_post_content(config, rate, date_str_formatted)
             
-            # Write the new post file
-            os.makedirs(post_dir, exist_ok=True) # Ensure the _posts directory exists
+            os.makedirs(post_dir, exist_ok=True)
             with open(filepath, 'w', encoding='utf-8') as f:
                 f.write(post_content)
-            print(f"Successfully created new post: {filepath}")
+            print(f"Successfully created or updated post: {filepath}")
 
     except Exception as e:
         print(f"An error occurred: {e}")
