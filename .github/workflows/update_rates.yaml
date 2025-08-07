@@ -2,7 +2,7 @@ name: Update Currency Rates and Posts
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '0 */4 * * *'
   workflow_dispatch:
    
 
@@ -35,3 +35,4 @@ jobs:
           file_pattern: "_data/rates.yml _posts/*.md"
           commit_user_name: "GitHub Actions Bot"
           commit_user_email: "github-actions-bot@users.noreply.github.com"
+
