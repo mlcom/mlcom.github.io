@@ -105,9 +105,11 @@ def main():
         today = datetime.now(timezone.utc)
         date_slug = today.strftime('%Y-%m-%d')
         date_str_formatted = today.strftime('%d %B %Y')
+        day, month_name, year = date_str_formatted.split()
 
         for config in POST_CONFIG:
             from_code, to_code = config['from_code'], config['to_code']
+            from_full, to_full = config['from_full'], config['to_full']
             print(f"--- Processing post for {from_code} to {to_code} ---")
 
             if from_code not in master_rates or to_code not in master_rates:
@@ -140,4 +142,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
