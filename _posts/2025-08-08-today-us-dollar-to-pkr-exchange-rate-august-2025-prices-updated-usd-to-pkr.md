@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'US Dollar (USD) to Pakistani Rupee (PKR) Rate Today – 08 August 2025'
+title:  'Live US Dollar to Pakistani Rupee Rate on 08 August 2025'
 author: jane
 categories: [ usd-to-pkr ]
 image: assets/images/usd-to-pkr-rate-today.jpg
