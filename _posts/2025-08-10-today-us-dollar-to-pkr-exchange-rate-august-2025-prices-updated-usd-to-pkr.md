@@ -1,32 +1,32 @@
 ---
 layout: post
-title:  'US Dollar (USD) to Pakistani Rupee (PKR) Rate Today – 09 August 2025'
+title:  'Live US Dollar to Pakistani Rupee Rate on 10 August 2025'
 author: jane
 categories: [ usd-to-pkr ]
 image: assets/images/usd-to-pkr-rate-today.jpg
 tags: ['USD to PKR', 'US Dollar to Pakistani Rupee', 'dollar rate in pakistan', 'today dollar rate open market', 'usa to pakistan dollar rate']
 ---
 
-# US Dollar to Pakistani Rupee Exchange Rate – 09 August 2025
+# US Dollar to Pakistani Rupee Exchange Rate – 10 August 2025
 
-For anyone looking to convert US Dollar (USD) to Pakistani Rupee (PKR), staying updated with the latest exchange rate is essential. As of 09 August 2025, the current mid-market rate is:
+For anyone looking to convert US Dollar (USD) to Pakistani Rupee (PKR), staying updated with the latest exchange rate is essential. As of 10 August 2025, the current mid-market rate is:
 
-**1 USD = 284.02 PKR**
+**1 USD = 284.04 PKR**
 
 This rate is a benchmark for currency conversion and is sourced from reliable global financial data providers.
 
 | USD | PKR |
 | --- | --- |
-| 1 USD | PKR 284.02 |
-| 5 USD | PKR 1,420.10 |
-| 10 USD | PKR 2,840.19 |
-| 25 USD | PKR 7,100.48 |
-| 50 USD | PKR 14,200.96 |
-| 100 USD | PKR 28,401.92 |
-| 500 USD | PKR 142,009.60 |
-| 1,000 USD | PKR 284,019.20 |
-| 5,000 USD | PKR 1,420,096.00 |
-| 10,000 USD | PKR 2,840,192.00 |
+| 1 USD | PKR 284.04 |
+| 5 USD | PKR 1,420.20 |
+| 10 USD | PKR 2,840.41 |
+| 25 USD | PKR 7,101.02 |
+| 50 USD | PKR 14,202.05 |
+| 100 USD | PKR 28,404.10 |
+| 500 USD | PKR 142,020.50 |
+| 1,000 USD | PKR 284,041.00 |
+| 5,000 USD | PKR 1,420,205.00 |
+| 10,000 USD | PKR 2,840,410.00 |
 
 
 ## Understanding Exchange Rate Fluctuations
@@ -45,7 +45,7 @@ The SBP manages the exchange rate to ensure stability. While Pakistan officially
 
 ### How much is 100 US Dollars in Pakistani Rupees today?
 
-At today's interbank exchange rate, 100 US Dollars is worth **284,019.20** Pakistani Rupees. Please note that remittance services and banks will offer their own rates for the transaction.
+At today's interbank exchange rate, 100 US Dollars is worth **284,041.00** Pakistani Rupees. Please note that remittance services and banks will offer their own rates for the transaction.
 
 
 
