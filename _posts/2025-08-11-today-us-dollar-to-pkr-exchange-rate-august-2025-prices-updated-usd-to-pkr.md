@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'Today's USD to PKR Exchange Rate: 11 August 2025'
+title:  'Live US Dollar to Pakistani Rupee Rate on 11 August 2025'
 author: jane
 categories: [ usd-to-pkr ]
 image: assets/images/usd-to-pkr-rate-today.jpg
