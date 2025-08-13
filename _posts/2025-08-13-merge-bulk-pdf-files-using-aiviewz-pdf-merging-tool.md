@@ -3,7 +3,7 @@ layout: post
 title: "Merge PDF Files and Documents using AI Viewz Free PDF Merging Tool"
 author: Jane
 categories: [technology, productivity]
-image: assets/images/pdf-merge.jpg
+image: assets/images/bulk-pdf-merging.jpeg
 tags: [pdf merge, document management, ai viewz, combine pdf, productivity]
 ---
 
