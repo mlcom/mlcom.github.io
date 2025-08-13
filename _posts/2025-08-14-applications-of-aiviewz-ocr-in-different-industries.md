@@ -3,7 +3,7 @@ layout: post
 title: "Transform Your Documents with AI Viewz OCR Tool"
 author: ali
 categories: [technology, productivity]
-image: assets/images/ai-viewz-ocr.jpg
+image: assets/images/pdf-image-to-text.jpeg
 tags: [ocr, text extraction, ai viewz, pdf to text, image to text]
 ---
 
