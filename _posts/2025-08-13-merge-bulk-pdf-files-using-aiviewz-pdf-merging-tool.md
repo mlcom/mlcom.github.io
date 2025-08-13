@@ -5,7 +5,6 @@ author: Jane
 categories: [technology, productivity]
 image: assets/images/pdf-merge.jpg
 tags: [pdf merge, document management, ai viewz, combine pdf, productivity]
-slug: streamline-documents-with-ai-viewz-pdf-merge-tool
 ---
 
 ## Merge Your PDFs Effortlessly with AI Viewz PDF Combiner!
