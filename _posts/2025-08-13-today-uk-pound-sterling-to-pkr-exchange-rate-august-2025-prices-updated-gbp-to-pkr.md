@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'Live UK Pound Sterling to Pakistani Rupee Rate on 13 August 2025'
+title:  'Today's GBP to PKR Exchange Rate: 13 August 2025'
 author: john
 categories: [ gbp-to-pkr ]
 image: assets/images/usd-to-pkr-rate-today.jpg
