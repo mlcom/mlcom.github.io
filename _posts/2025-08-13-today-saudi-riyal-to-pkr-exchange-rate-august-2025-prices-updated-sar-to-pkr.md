@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  'Today's SAR to PKR Exchange Rate: 13 August 2025'
+title:  "Today's SAR to PKR Exchange Rate: 13 August 2025"
 author: jane
 categories: [ sar-to-pkr ]
 image: assets/images/sar-to-pkr-rate-today.jpg
-tags: ['SAR to PKR', 'Saudi Riyal to Pakistani Rupee', 'today riyal rate in pakistan', 'saudi riyal rate', 'open market riyal rate']
+tags: [SAR to PKR, Saudi Riyal to Pakistani Rupee, today riyal rate in pakistan, saudi riyal rate, open market riyal rate]
 ---
 
-# Saudi Riyal to Pakistani Rupee Exchange Rate – 13 August 2025
+## Saudi Riyal to Pakistani Rupee Exchange Rate – 13 August 2025
 
 For anyone looking to convert Saudi Riyal (SAR) to Pakistani Rupee (PKR), staying updated with the latest exchange rate is essential. As of 13 August 2025, the current mid-market rate is:
 
