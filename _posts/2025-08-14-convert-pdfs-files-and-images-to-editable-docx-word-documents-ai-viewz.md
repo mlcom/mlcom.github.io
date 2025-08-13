@@ -3,7 +3,7 @@ layout: post
 title: "Convert PDFs and Images to Editable Word Documents with AI Viewz"
 author: ali
 categories: [technology, productivity]
-image: assets/images/ai-viewz-pdf-to-docx.jpg
+image: assets/images/pdf-image-to-word-document-docx.jpeg
 tags: [pdf to docx, document conversion, ai viewz, image to word, productivity]
 ---
 
