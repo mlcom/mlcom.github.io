@@ -3,7 +3,7 @@ layout: post
 title: "Convert PDFs and Images to Excel with AI Viewz PDF to Excel Tool"
 author: jane
 categories: [technology, productivity]
-image: assets/images/ai-viewz-pdf-to-excel.jpg
+image: assets/images/pdf-image-to-excel.jpeg
 tags: [pdf to excel, document conversion, ai viewz, table extraction, productivity]
 ---
 
