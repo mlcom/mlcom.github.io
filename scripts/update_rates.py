@@ -37,7 +37,7 @@ def generate_post_content(config, rate, date_str):
     # Title variations for better SEO
     title_templates = [
         f"{from_full} ({from_code}) to {to_full} ({to_code}) Rate Today – {date_str}",
-        f"Today's {from_code} to {to_code} Exchange Rate: {date_str}",
+        f"Today {from_code} to {to_code} Exchange Rate: {date_str}",
         f"Live {from_full} to {to_full} Rate on {date_str}",
     ]
     title = random.choice(title_templates)
@@ -49,7 +49,7 @@ def generate_post_content(config, rate, date_str):
     
     content = f"""---
 layout: post
-title:  '{title}'
+title:  '{title'
 author: {config['author']}
 categories: [ {from_code.lower()}-to-{to_code.lower()} ]
 image: {config['image']}
@@ -142,5 +142,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
