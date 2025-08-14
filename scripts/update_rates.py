@@ -49,7 +49,7 @@ def generate_post_content(config, rate, date_str):
     
     content = f"""---
 layout: post
-title:  '{title'
+title:  '{title}'
 author: {config['author']}
 categories: [ {from_code.lower()}-to-{to_code.lower()} ]
 image: {config['image']}
@@ -142,6 +142,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
