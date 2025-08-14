@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'Saudi Riyal (SAR) to Pakistani Rupee (PKR) Rate Today – 14 August 2025'
+title:  'Today SAR to PKR Exchange Rate: 14 August 2025'
 author: jane
 categories: [ sar-to-pkr ]
 image: assets/images/sar-to-pkr-rate-today.jpg
