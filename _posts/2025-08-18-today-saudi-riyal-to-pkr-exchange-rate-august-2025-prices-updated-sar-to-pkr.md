@@ -1,32 +1,32 @@
 ---
 layout: post
-title:  'Live Saudi Riyal to Pakistani Rupee Rate on 17 August 2025'
+title:  'Live Saudi Riyal to Pakistani Rupee Rate on 18 August 2025'
 author: jane
 categories: [ sar-to-pkr ]
 image: assets/images/sar-to-pkr-rate-today.jpg
 tags: ['SAR to PKR', 'Saudi Riyal to Pakistani Rupee', 'today riyal rate in pakistan', 'saudi riyal rate', 'open market riyal rate']
 ---
 
-# Saudi Riyal to Pakistani Rupee Exchange Rate – 17 August 2025
+# Saudi Riyal to Pakistani Rupee Exchange Rate – 18 August 2025
 
-For anyone looking to convert Saudi Riyal (SAR) to Pakistani Rupee (PKR), staying updated with the latest exchange rate is essential. As of 17 August 2025, the current mid-market rate is:
+For anyone looking to convert Saudi Riyal (SAR) to Pakistani Rupee (PKR), staying updated with the latest exchange rate is essential. As of 18 August 2025, the current mid-market rate is:
 
-**1 SAR = 75.64 PKR**
+**1 SAR = 75.63 PKR**
 
 This rate is a benchmark for currency conversion and is sourced from reliable global financial data providers.
 
 | SAR | PKR |
 | --- | --- |
-| 1 SAR | PKR 75.64 |
-| 5 SAR | PKR 378.21 |
-| 10 SAR | PKR 756.41 |
-| 25 SAR | PKR 1,891.03 |
-| 50 SAR | PKR 3,782.06 |
-| 100 SAR | PKR 7,564.12 |
-| 500 SAR | PKR 37,820.60 |
-| 1,000 SAR | PKR 75,641.20 |
-| 5,000 SAR | PKR 378,206.00 |
-| 10,000 SAR | PKR 756,412.00 |
+| 1 SAR | PKR 75.63 |
+| 5 SAR | PKR 378.17 |
+| 10 SAR | PKR 756.33 |
+| 25 SAR | PKR 1,890.83 |
+| 50 SAR | PKR 3,781.65 |
+| 100 SAR | PKR 7,563.30 |
+| 500 SAR | PKR 37,816.52 |
+| 1,000 SAR | PKR 75,633.04 |
+| 5,000 SAR | PKR 378,165.20 |
+| 10,000 SAR | PKR 756,330.40 |
 
 
 ## Understanding Exchange Rate Fluctuations
@@ -45,7 +45,7 @@ While there's no guaranteed 'best day,' rates are often more stable mid-week (Tu
 
 ### How much is 1,000 SAR in Pakistani Rupees today?
 
-Based on today's mid-market exchange rate, 1,000 Saudi Riyals is equivalent to **75,641.20** Pakistani Rupees. This value is for informational purposes and may vary slightly at your chosen exchange service.
+Based on today's mid-market exchange rate, 1,000 Saudi Riyals is equivalent to **75,633.04** Pakistani Rupees. This value is for informational purposes and may vary slightly at your chosen exchange service.
 
 
 
