@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'Today GBP to PKR Exchange Rate: 18 August 2025'
+title:  'UK Pound Sterling (GBP) to Pakistani Rupee (PKR) Rate Today – 18 August 2025'
 author: john
 categories: [ gbp-to-pkr ]
 image: assets/images/usd-to-pkr-rate-today.jpg
