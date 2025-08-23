@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'Today AED to PKR Exchange Rate: 23 August 2025'
+title:  'Live UAE Dirham to Pakistani Rupee Rate on 23 August 2025'
 author: jane
 categories: [ aed-to-pkr ]
 image: assets/images/aed-to-pkr-rate-today.jpg
