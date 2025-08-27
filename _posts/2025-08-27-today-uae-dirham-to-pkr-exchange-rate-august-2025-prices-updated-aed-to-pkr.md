@@ -1,15 +1,15 @@
 ---
 layout: post
-title:  'UAE Dirham (AED) to Pakistani Rupee (PKR) Rate Today – 26 August 2025'
+title:  'UAE Dirham (AED) to Pakistani Rupee (PKR) Rate Today – 27 August 2025'
 author: jane
 categories: [ aed-to-pkr ]
 image: assets/images/aed-to-pkr-rate-today.jpg
 tags: ['AED to PKR', 'UAE Dirham to Pakistani Rupee', 'dubai dirham to pkr', 'dirham rate in pakistan today', 'uae exchange rate pakistan']
 ---
 
-# UAE Dirham to Pakistani Rupee Exchange Rate – 26 August 2025
+# UAE Dirham to Pakistani Rupee Exchange Rate – 27 August 2025
 
-For anyone looking to convert UAE Dirham (AED) to Pakistani Rupee (PKR), staying updated with the latest exchange rate is essential. As of 26 August 2025, the current mid-market rate is:
+For anyone looking to convert UAE Dirham (AED) to Pakistani Rupee (PKR), staying updated with the latest exchange rate is essential. As of 27 August 2025, the current mid-market rate is:
 
 **1 AED = 77.23 PKR**
 
@@ -19,14 +19,14 @@ This rate is a benchmark for currency conversion and is sourced from reliable gl
 | --- | --- |
 | 1 AED | PKR 77.23 |
 | 5 AED | PKR 386.17 |
-| 10 AED | PKR 772.34 |
-| 25 AED | PKR 1,930.86 |
-| 50 AED | PKR 3,861.72 |
-| 100 AED | PKR 7,723.44 |
-| 500 AED | PKR 38,617.18 |
-| 1,000 AED | PKR 77,234.36 |
-| 5,000 AED | PKR 386,171.82 |
-| 10,000 AED | PKR 772,343.64 |
+| 10 AED | PKR 772.35 |
+| 25 AED | PKR 1,930.87 |
+| 50 AED | PKR 3,861.73 |
+| 100 AED | PKR 7,723.46 |
+| 500 AED | PKR 38,617.32 |
+| 1,000 AED | PKR 77,234.64 |
+| 5,000 AED | PKR 386,173.18 |
+| 10,000 AED | PKR 772,346.36 |
 
 
 ## Understanding Exchange Rate Fluctuations
@@ -45,7 +45,7 @@ The UAE pegged the Dirham to the US Dollar to ensure economic stability. This pe
 
 ### How much is 500 AED in Pakistani Rupees today?
 
-As per today's mid-market rates, 500 UAE Dirhams would convert to **77,234.36** Pakistani Rupees. Remember to check with your money transfer operator for their final rate.
+As per today's mid-market rates, 500 UAE Dirhams would convert to **77,234.64** Pakistani Rupees. Remember to check with your money transfer operator for their final rate.
 
 
 

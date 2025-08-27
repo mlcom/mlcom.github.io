@@ -1,15 +1,15 @@
 ---
 layout: post
-title:  'Live US Dollar to Pakistani Rupee Rate on 26 August 2025'
+title:  'Today USD to PKR Exchange Rate: 27 August 2025'
 author: jane
 categories: [ usd-to-pkr ]
 image: assets/images/usd-to-pkr-rate-today.jpg
 tags: ['USD to PKR', 'US Dollar to Pakistani Rupee', 'dollar rate in pakistan', 'today dollar rate open market', 'usa to pakistan dollar rate']
 ---
 
-# US Dollar to Pakistani Rupee Exchange Rate – 26 August 2025
+# US Dollar to Pakistani Rupee Exchange Rate – 27 August 2025
 
-For anyone looking to convert US Dollar (USD) to Pakistani Rupee (PKR), staying updated with the latest exchange rate is essential. As of 26 August 2025, the current mid-market rate is:
+For anyone looking to convert US Dollar (USD) to Pakistani Rupee (PKR), staying updated with the latest exchange rate is essential. As of 27 August 2025, the current mid-market rate is:
 
 **1 USD = 283.64 PKR**
 
@@ -19,14 +19,14 @@ This rate is a benchmark for currency conversion and is sourced from reliable gl
 | --- | --- |
 | 1 USD | PKR 283.64 |
 | 5 USD | PKR 1,418.22 |
-| 10 USD | PKR 2,836.43 |
-| 25 USD | PKR 7,091.08 |
-| 50 USD | PKR 14,182.16 |
-| 100 USD | PKR 28,364.32 |
-| 500 USD | PKR 141,821.60 |
-| 1,000 USD | PKR 283,643.20 |
-| 5,000 USD | PKR 1,418,216.00 |
-| 10,000 USD | PKR 2,836,432.00 |
+| 10 USD | PKR 2,836.44 |
+| 25 USD | PKR 7,091.11 |
+| 50 USD | PKR 14,182.21 |
+| 100 USD | PKR 28,364.42 |
+| 500 USD | PKR 141,822.10 |
+| 1,000 USD | PKR 283,644.20 |
+| 5,000 USD | PKR 1,418,221.00 |
+| 10,000 USD | PKR 2,836,442.00 |
 
 
 ## Understanding Exchange Rate Fluctuations
@@ -45,7 +45,7 @@ The SBP manages the exchange rate to ensure stability. While Pakistan officially
 
 ### How much is 100 US Dollars in Pakistani Rupees today?
 
-At today's interbank exchange rate, 100 US Dollars is worth **283,643.20** Pakistani Rupees. Please note that remittance services and banks will offer their own rates for the transaction.
+At today's interbank exchange rate, 100 US Dollars is worth **283,644.20** Pakistani Rupees. Please note that remittance services and banks will offer their own rates for the transaction.
 
 
 
