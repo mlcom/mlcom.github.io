@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'UK Pound Sterling (GBP) to Pakistani Rupee (PKR) Rate Today – 30 August 2025'
+title:  'Live UK Pound Sterling to Pakistani Rupee Rate on 30 August 2025'
 author: john
 categories: [ gbp-to-pkr ]
 image: assets/images/usd-to-pkr-rate-today.jpg
