@@ -1,9 +1,7 @@
 name: Generate Sitemap
 
 on:
-  push:
-    branches:
-      - main  # or master if your repo uses master
+  workflow_dispatch:
 
 jobs:
   build:
