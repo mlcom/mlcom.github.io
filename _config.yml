@@ -3,19 +3,20 @@ name: 'Machine Learning Community'
 description: 'A vibrant community for machine learning enthusiasts to share knowledge, resources, and stay updated with the latest advancements in the machine learning domain.'
 logo: 'assets/images/logo.jpg'
 favicon: 'assets/images/favicon.ico'
-baseurl: '/'
+baseurl: ''
 disqus: 'mlcommunity'
 email: 'mlblogspk@gmail.com'
 mailchimp-list: 'https://mlcommunity.list-manage.com/subscribe/post?u=1234567890abcdef123456789&id=abcdef123456'
 
 include: ["_pages"]
-permalink: /:title/
+permalink: /:title
 
 # Plugins
 plugins: 
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
+  - jekyll-sitemap
   
 authors:
   admin:
