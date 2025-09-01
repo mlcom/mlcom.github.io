@@ -83,9 +83,9 @@
     </div>
   </main>
 
-  <!-- Currency Converter Widget -->
   <div class="currency-widget">
     <h5><i class="fas fa-coins"></i> Currency Converter</h5>
+    <input type="number" id="amount" value="100" placeholder="Enter amount" />
     <select id="from-currency">
       <option value="SAR">Saudi Riyal (SAR)</option>
       <option value="USD">US Dollar (USD)</option>
@@ -93,8 +93,8 @@
       <option value="GBP">British Pound (GBP)</option>
       <option value="AED">UAE Dirham (AED)</option>
     </select>
-    <input type="number" id="amount" placeholder="Enter amount" />
     <div class="result" id="conversion-result">Result: -- PKR</div>
+    <p id="conversion-status" class="small text-muted mb-0"></p>
   </div>
 
   <!-- Footer -->
@@ -121,87 +121,100 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
   <script src="{{site.baseurl}}/assets/js/theme.js"></script>
 
-  <script>
-    async function fetchRates() {
-      try {
-        let response = await fetch("https://api.exchangerate.host/latest?base=PKR&symbols=SAR,USD,EUR,GBP,AED");
-        let data = await response.json();
-        return data.rates;
-      } catch (e) {
-        console.error("Error fetching rates", e);
-        return null;
-      }
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const lastUpdated = "{{ site.data.rates.last_updated_utc | date_to_xmlschema }}";
+  const conversionRates = {{ site.data.rates.rates | jsonify }};
+
+  const amountInput = document.getElementById("amount");
+  const fromCurrency = document.getElementById("from-currency");
+  const resultDiv = document.getElementById("conversion-result");
+  const statusText = document.getElementById("conversion-status");
+
+  /**
+   * Create or update JSON-LD for a currency pair
+   */
+  function addOrUpdateJsonLd(from, to, rate) {
+    const scriptId = `jsonld-${from}-${to}`;
+    let script = document.getElementById(scriptId);
+
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "ExchangeRateSpecification",
+      "currency": from,
+      "currentExchangeRate": {
+        "@type": "UnitPriceSpecification",
+        "priceCurrency": to,
+        "price": rate.toFixed(4)
+      },
+      "exchangeRateSpread": "0.0",
+      "validFrom": lastUpdated
+    };
+
+    if (!script) {
+      script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.id = scriptId;
+      document.body.appendChild(script);
+    }
+    script.textContent = JSON.stringify(jsonLd, null, 2);
+  }
+
+  /**
+   * Perform conversion and update UI + JSON-LD
+   */
+  function convert() {
+    const amt = parseFloat(amountInput.value);
+    const from = fromCurrency.value;
+    const to = "PKR";
+
+    if (isNaN(amt) || amt <= 0) {
+      resultDiv.textContent = "Result: -- PKR";
+      statusText.textContent = "Enter a valid amount.";
+      return;
     }
 
-    document.addEventListener("DOMContentLoaded", async () => {
-      const rates = await fetchRates();
-      const amountInput = document.getElementById("amount");
-      const fromCurrency = document.getElementById("from-currency");
-      const resultDiv = document.getElementById("conversion-result");
+    const rateFrom = conversionRates[from];
+    const rateTo = conversionRates[to];
+    if (!rateFrom || !rateTo) {
+      resultDiv.textContent = "Result: -- PKR";
+      statusText.textContent = "Currency data not available.";
+      return;
+    }
 
-      function convert() {
-        const amt = parseFloat(amountInput.value);
-        const from = fromCurrency.value;
-        if (!amt || !rates) {
-          resultDiv.textContent = "Result: -- PKR";
-          return;
-        }
-        const rateToPKR = 1 / rates[from]; // since API is base=PKR
-        const converted = amt * rateToPKR;
-        resultDiv.textContent = `Result: ${converted.toFixed(2)} PKR`;
-      }
+    const converted = (amt / rateFrom) * rateTo;
+    const rate = rateTo / rateFrom;
 
-      amountInput.addEventListener("input", convert);
-      fromCurrency.addEventListener("change", convert);
-    });
-  </script>
+    resultDiv.textContent = `Result: ${converted.toFixed(2)} PKR`;
+    statusText.textContent = `1 ${from} = ${rate.toFixed(4)} PKR (Updated: ${new Date(lastUpdated).toLocaleDateString()})`;
 
-  <!-- JSON-LD Schema for Currency Pairs -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FinancialProduct",
-    "name": "Currency Converter",
-    "description": "Live exchange rates for SAR, USD, EUR, GBP, AED to PKR.",
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Saudi Riyal to PKR",
-        "priceCurrency": "PKR",
-        "price": "Fetch dynamically",
-        "url": "{{site.baseurl}}/sar-to-pkr/"
-      },
-      {
-        "@type": "Offer",
-        "name": "US Dollar to PKR",
-        "priceCurrency": "PKR",
-        "price": "Fetch dynamically",
-        "url": "{{site.baseurl}}/usd-to-pkr/"
-      },
-      {
-        "@type": "Offer",
-        "name": "Euro to PKR",
-        "priceCurrency": "PKR",
-        "price": "Fetch dynamically",
-        "url": "{{site.baseurl}}/eur-to-pkr/"
-      },
-      {
-        "@type": "Offer",
-        "name": "British Pound to PKR",
-        "priceCurrency": "PKR",
-        "price": "Fetch dynamically",
-        "url": "{{site.baseurl}}/gbp-to-pkr/"
-      },
-      {
-        "@type": "Offer",
-        "name": "UAE Dirham to PKR",
-        "priceCurrency": "PKR",
-        "price": "Fetch dynamically",
-        "url": "{{site.baseurl}}/aed-to-pkr/"
-      }
-    ]
+    // Add dynamic JSON-LD for this pair
+    addOrUpdateJsonLd(from, "PKR", rate);
   }
-  </script>
+
+  /**
+   * Pre-generate JSON-LD for all 5 default pairs (SAR, USD, EUR, GBP, AED → PKR)
+   */
+  function generateAllJsonLd() {
+    const to = "PKR";
+    ["SAR", "USD", "EUR", "GBP", "AED"].forEach(from => {
+      if (conversionRates[from] && conversionRates[to]) {
+        const rate = conversionRates[to] / conversionRates[from];
+        addOrUpdateJsonLd(from, to, rate);
+      }
+    });
+  }
+
+  // Event listeners
+  amountInput.addEventListener("input", convert);
+  fromCurrency.addEventListener("change", convert);
+
+  // Run once on load
+  convert();
+  generateAllJsonLd();
+});
+</script>
+
 
   {% include tracking-footer.html %}
 </body>
