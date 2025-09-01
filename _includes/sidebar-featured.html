@@ -1,141 +1,21 @@
 <div class="sticky-top sticky-top-offset">
-    <!-- Featured Posts -->
     <h4 class="font-weight-bold spanborder"><span>Featured</span></h4>  
     <ol class="list-featured">				
         {% for post in site.tags.featured %}                
             <li class="mb-4">
-            <span>
-                <h6 class="font-weight-bold">
-                    <a href="{{site.baseurl}}{{ post.url }}" class="text-dark">{{ post.title }}</a>
-                </h6>
-                <span class="d-block text-muted">
-                    In <span class="catlist">
-                    {% for category in post.categories %}
-                    <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
-                    {% endfor %}
+                <span>
+                    <h6 class="font-weight-bold">
+                        <a href="{{site.baseurl}}{{ post.url }}" class="text-dark">{{ post.title }}</a>
+                    </h6>
+                    <span class="d-block text-muted">
+                        In <span class="catlist">
+                        {% for category in post.categories %}
+                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
+                        {% endfor %}
+                        </span>
                     </span>
                 </span>
-            </span>
             </li>                
         {% endfor %}   
     </ol>
-
-    <!-- Compact Currency Converter -->
-    <div class="card shadow-sm mb-4 mt-4">
-        <div class="card-body p-2">
-            <h5 class="card-title h6 text-center mb-2">Quick Currency Converter</h5>
-            <fieldset id="sidebar-calculator-fieldset" disabled>
-                <div id="sidebar-calculator">
-                    <div class="form-group mb-2">
-                        <input type="number" id="sidebar-amount" class="form-control form-control-sm" value="100" aria-label="Amount">
-                    </div>
-                    <div class="form-row">
-                        <div class="col-6 mb-2">
-                            <select id="sidebar-from" class="form-control form-control-sm"></select>
-                        </div>
-                        <div class="col-6 mb-2">
-                            <select id="sidebar-to" class="form-control form-control-sm"></select>
-                        </div>
-                    </div>
-                    <button id="sidebar-convert" class="btn btn-primary btn-sm w-100">Convert</button>
-                    <div id="sidebar-result" class="mt-2 text-center small font-weight-bold text-success"></div>
-                    <p id="sidebar-status" class="text-muted small mb-0"></p>
-                </div>
-            </fieldset>
-        </div>
-    </div>
 </div>
-
-<!-- Sidebar Converter Script -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const lastUpdated = "{{ site.data.rates.last_updated_utc | date_to_xmlschema }}";
-    const conversionRates = {{ site.data.rates.rates | jsonify }};
-    const currencyNames = {{ site.data.currency_names | jsonify }};
-    
-    const amountInput = document.getElementById('sidebar-amount');
-    const fromSelect = document.getElementById('sidebar-from');
-    const toSelect = document.getElementById('sidebar-to');
-    const convertButton = document.getElementById('sidebar-convert');
-    const resultText = document.getElementById('sidebar-result');
-    const statusText = document.getElementById('sidebar-status');
-    const fieldset = document.getElementById('sidebar-calculator-fieldset');
-
-    function populateCurrencies() {
-        fromSelect.innerHTML = '';
-        toSelect.innerHTML = '';
-        for (const code in conversionRates) {
-            const name = currencyNames[code] || code;
-            const optionText = `${code} - ${name}`;
-            fromSelect.add(new Option(optionText, code));
-            toSelect.add(new Option(optionText, code));
-        }
-        fromSelect.value = 'SAR';
-        toSelect.value = 'PKR';
-        fieldset.disabled = false;
-        statusText.textContent = `Rates updated: ${new Date(lastUpdated).toLocaleDateString()}`;
-    }
-
-    function addOrUpdateJsonLd(from, to, rate) {
-        const scriptId = `jsonld-${from}-${to}`;
-        let script = document.getElementById(scriptId);
-
-        const jsonLd = {
-            "@context": "https://schema.org",
-            "@type": "ExchangeRateSpecification",
-            "currency": from,
-            "currentExchangeRate": {
-                "@type": "UnitPriceSpecification",
-                "priceCurrency": to,
-                "price": rate.toFixed(4)
-            },
-            "exchangeRateSpread": "0.0",
-            "validFrom": lastUpdated
-        };
-
-        if (!script) {
-            script = document.createElement("script");
-            script.type = "application/ld+json";
-            script.id = scriptId;
-            document.body.appendChild(script);
-        }
-        script.textContent = JSON.stringify(jsonLd, null, 2);
-    }
-
-    function performConversion() {
-        const amount = parseFloat(amountInput.value);
-        const from = fromSelect.value;
-        const to = toSelect.value;
-
-        if (isNaN(amount) || amount <= 0) {
-            resultText.textContent = '';
-            statusText.textContent = 'Enter a valid amount.';
-            return;
-        }
-
-        const rateFrom = conversionRates[from];
-        const rateTo = conversionRates[to];
-        if (!rateFrom || !rateTo) {
-            resultText.textContent = '';
-            statusText.textContent = 'Currency data not available.';
-            return;
-        }
-
-        const converted = (amount / rateFrom) * rateTo;
-        const rate = rateTo / rateFrom;
-
-        resultText.textContent = `${amount} ${from} = ${converted.toFixed(2)} ${to}`;
-        statusText.textContent = `1 ${from} = ${rate.toFixed(4)} ${to}`;
-
-        // Add or update JSON-LD entry for this pair
-        addOrUpdateJsonLd(from, to, rate);
-    }
-
-    convertButton.addEventListener('click', performConversion);
-    amountInput.addEventListener('keypress', e => { if (e.key === 'Enter') performConversion(); });
-
-    populateCurrencies();
-    // Initial JSON-LD for default pair SAR→PKR
-    addOrUpdateJsonLd('SAR', 'PKR', conversionRates['PKR'] / conversionRates['SAR']);
-});
-</script>
