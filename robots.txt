@@ -1,4 +1,4 @@
+Sitemap: https://mlcom.github.io/sitemap.xml
 User-agent: *
 Disallow:
 
-Sitemap: https://the-rogue-marketing.github.io/sitemap.xml
