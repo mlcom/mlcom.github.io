@@ -71,41 +71,13 @@
   <!-- Search Results -->
   <div id="lunrsearchresults" aria-live="polite"><ul class="mb-0"></ul></div>
 
-  <!-- Main Content + Sidebar -->
+  <!-- Main Content -->
   <main role="main" class="site-content">
     <div class="container pt-4 pb-4">
       <div class="row">
-         <div class="col-lg-9 col-md-8">
-          
-            {{ content }}
-          </div>
-        <aside class="col-lg-3 col-md-4">
-          <div class="card shadow-sm">
-            <div class="card-body p-3">
-              <h2 class="h6 text-center mb-2">Currency Converter</h2>
-              <fieldset id="calculator-fieldset" disabled>
-                <div id="currency-calculator">
-                  <div class="form-group mb-2">
-                    <input type="number" id="amount" class="form-control form-control-sm" value="100" placeholder="Amount">
-                  </div>
-                  <div class="form-group mb-2">
-                    <select id="from_currency" class="form-control form-control-sm"></select>
-                  </div>
-                  <div class="form-group mb-2">
-                    <select id="to_currency" class="form-control form-control-sm"></select>
-                  </div>
-                  <button id="convert-button" class="btn btn-primary btn-sm w-100">Convert</button>
-                  <div id="result_container" class="mt-2 text-center">
-                    <div id="result_text" class="text-success font-weight-bold small"></div>
-                    <p id="status_text" class="text-muted small mb-0"></p>
-                  </div>
-                </div>
-              </fieldset>
-              <small class="text-muted d-block text-center mt-2">Rates updated daily</small>
-            </div>
-          </div>
-        </aside>
-
+        <div class="col-lg-12">
+          {{ content }}
+        </div>
       </div>
     </div>
   </main>
@@ -134,86 +106,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
   <script src="{{site.baseurl}}/assets/js/theme.js"></script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const lastUpdated = "{{ site.data.rates.last_updated_utc | date_to_xmlschema }}";
-      const conversionRates = {{ site.data.rates.rates | jsonify }};
-      const currencyNames = {{ site.data.currency_names | jsonify }};
-
-      const amountInput = document.getElementById('amount');
-      const fromSelect = document.getElementById('from_currency');
-      const toSelect = document.getElementById('to_currency');
-      const convertButton = document.getElementById('convert-button');
-      const resultText = document.getElementById('result_text');
-      const statusText = document.getElementById('status_text');
-      const fieldset = document.getElementById('calculator-fieldset');
-      const seoHeading = document.getElementById('seo-heading');
-
-      function populateCurrencies() {
-        fromSelect.innerHTML = '';
-        toSelect.innerHTML = '';
-        for (const currencyCode in conversionRates) {
-          const fullName = currencyNames[currencyCode] || currencyCode;
-          const optionText = `${currencyCode} - ${fullName}`;
-          fromSelect.add(new Option(optionText, currencyCode));
-          toSelect.add(new Option(optionText, currencyCode));
-        }
-        fromSelect.value = 'SAR';
-        toSelect.value = 'PKR';
-        fieldset.disabled = false;
-        statusText.textContent = `Rates last updated: ${new Date(lastUpdated).toLocaleString()}`;
-        updateSeoHeading();
-      }
-
-      function updateSeoHeading() {
-        const fromCode = fromSelect.value;
-        const toCode = toSelect.value;
-        const fromName = currencyNames[fromCode] || fromCode;
-        const toName = currencyNames[toCode] || toCode;
-        const today = new Date();
-        const formattedDate = today.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
-        seoHeading.textContent = `${fromName} to ${toName} Exchange Rate - ${formattedDate}`;
-      }
-
-      function performConversion() {
-        const amount = parseFloat(amountInput.value);
-        const fromCurrency = fromSelect.value;
-        const toCurrency = toSelect.value;
-
-        if (isNaN(amount) || amount <= 0) {
-          resultText.textContent = '';
-          statusText.innerHTML = '<span class="text-danger">Please enter a valid amount greater than zero.</span>';
-          return;
-        }
-
-        const rateFrom = conversionRates[fromCurrency];
-        const rateTo = conversionRates[toCurrency];
-        if (!rateFrom || !rateTo) {
-          resultText.textContent = '';
-          statusText.innerHTML = '<span class="text-danger">Currency data not available. Please try again later.</span>';
-          return;
-        }
-
-        const convertedAmount = (amount / rateFrom) * rateTo;
-        resultText.innerHTML = `
-          ${amount.toLocaleString(undefined, {maximumFractionDigits: 2})} ${fromCurrency} =
-          <strong class="text-primary">${convertedAmount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 4})}</strong> ${toCurrency}
-        `;
-        statusText.textContent = `1 ${fromCurrency} = ${(rateTo / rateFrom).toFixed(6)} ${toCurrency}`;
-        updateSeoHeading();
-      }
-
-      convertButton.addEventListener('click', performConversion);
-      fromSelect.addEventListener('change', updateSeoHeading);
-      toSelect.addEventListener('change', updateSeoHeading);
-      amountInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') performConversion();
-      });
-
-      populateCurrencies();
-    });
-  </script>
-
   {% include tracking-footer.html %}
 </body>
 </html>
+
