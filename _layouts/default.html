@@ -2,58 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- Enhanced Viewport for Mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <!-- Preload Critical Resources -->
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" as="style">
-  <link rel="preload" href="{{site.baseurl}}/assets/css/main.css" as="style">
-  <link rel="preload" href="https://code.jquery.com/jquery-3.3.1.min.js" as="script">
-
-  <!-- Meta Tags -->
-  <meta name="description" content="Real-time Saudi Riyal to Pakistani Rupee (SAR to PKR) exchange rate calculator for 2025. Get accurate currency conversion with historical trends.">
-  <meta name="keywords" content="SAR to PKR, Saudi Riyal to Pakistani Rupee, currency converter, forex rates, exchange rate today, 1 SAR to PKR, money transfer rates">
-  <meta name="author" content="{{site.name}}">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="SAR to PKR Exchange Rate 2025 | {{site.name}}">
-  <meta property="og:description" content="Convert SAR to PKR with real-time exchange rates for 2025. Check historical trends and plan your transactions.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{site.baseurl}}{{page.url}}">
-  <meta property="og:image" content="{{site.baseurl}}/assets/images/sar-to-pkr-rate-today.jpg">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SAR to PKR Exchange Rate 2025 | {{site.name}}">
-  <meta name="twitter:description" content="Real-time Saudi Riyal to Pakistani Rupee converter with historical data for 2025.">
-  <meta name="twitter:image" content="{{site.baseurl}}/assets/images/sar-to-pkr-rate-today.jpg">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="{{site.baseurl}}{{page.url}}">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}/{{site.favicon}}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{site.baseurl}}/apple-touch-icon.png">
-
-  <!-- Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7391081469827045" crossorigin="anonymous"></script>
-
   <title>{{page.title}} | {{site.name}}</title>
-   {% seo %}
+  {% seo %}
 
-  <!-- Fonts & CSS -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Real-time currency converter for SAR, USD, EUR, GBP, AED to PKR with accurate exchange rates.">
+  <meta name="robots" content="index, follow">
+
   <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
   <link rel="stylesheet" href="{{site.baseurl}}/assets/css/theme.css">
-
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+  <style>
+    /* Floating calculator widget */
+    .currency-widget {
+      position: fixed;
+      top: 120px;
+      right: 20px;
+      width: 280px;
+      z-index: 9999;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .currency-widget h5 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .currency-widget select,
+    .currency-widget input {
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    .currency-widget .result {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+  </style>
+
   {% include tracking-header.html %}
 </head>
 
-<body class="{% if page.url == '/' %}homefirstpage{% endif %}">
+<body>
   <!-- Navbar -->
   <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container">
@@ -82,6 +83,20 @@
     </div>
   </main>
 
+  <!-- Currency Converter Widget -->
+  <div class="currency-widget">
+    <h5><i class="fas fa-coins"></i> Currency Converter</h5>
+    <select id="from-currency">
+      <option value="SAR">Saudi Riyal (SAR)</option>
+      <option value="USD">US Dollar (USD)</option>
+      <option value="EUR">Euro (EUR)</option>
+      <option value="GBP">British Pound (GBP)</option>
+      <option value="AED">UAE Dirham (AED)</option>
+    </select>
+    <input type="number" id="amount" placeholder="Enter amount" />
+    <div class="result" id="conversion-result">Result: -- PKR</div>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-white border-top p-3 text-muted small">
     <div class="container">
@@ -106,7 +121,88 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
   <script src="{{site.baseurl}}/assets/js/theme.js"></script>
 
+  <script>
+    async function fetchRates() {
+      try {
+        let response = await fetch("https://api.exchangerate.host/latest?base=PKR&symbols=SAR,USD,EUR,GBP,AED");
+        let data = await response.json();
+        return data.rates;
+      } catch (e) {
+        console.error("Error fetching rates", e);
+        return null;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const rates = await fetchRates();
+      const amountInput = document.getElementById("amount");
+      const fromCurrency = document.getElementById("from-currency");
+      const resultDiv = document.getElementById("conversion-result");
+
+      function convert() {
+        const amt = parseFloat(amountInput.value);
+        const from = fromCurrency.value;
+        if (!amt || !rates) {
+          resultDiv.textContent = "Result: -- PKR";
+          return;
+        }
+        const rateToPKR = 1 / rates[from]; // since API is base=PKR
+        const converted = amt * rateToPKR;
+        resultDiv.textContent = `Result: ${converted.toFixed(2)} PKR`;
+      }
+
+      amountInput.addEventListener("input", convert);
+      fromCurrency.addEventListener("change", convert);
+    });
+  </script>
+
+  <!-- JSON-LD Schema for Currency Pairs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialProduct",
+    "name": "Currency Converter",
+    "description": "Live exchange rates for SAR, USD, EUR, GBP, AED to PKR.",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Saudi Riyal to PKR",
+        "priceCurrency": "PKR",
+        "price": "Fetch dynamically",
+        "url": "{{site.baseurl}}/sar-to-pkr/"
+      },
+      {
+        "@type": "Offer",
+        "name": "US Dollar to PKR",
+        "priceCurrency": "PKR",
+        "price": "Fetch dynamically",
+        "url": "{{site.baseurl}}/usd-to-pkr/"
+      },
+      {
+        "@type": "Offer",
+        "name": "Euro to PKR",
+        "priceCurrency": "PKR",
+        "price": "Fetch dynamically",
+        "url": "{{site.baseurl}}/eur-to-pkr/"
+      },
+      {
+        "@type": "Offer",
+        "name": "British Pound to PKR",
+        "priceCurrency": "PKR",
+        "price": "Fetch dynamically",
+        "url": "{{site.baseurl}}/gbp-to-pkr/"
+      },
+      {
+        "@type": "Offer",
+        "name": "UAE Dirham to PKR",
+        "priceCurrency": "PKR",
+        "price": "Fetch dynamically",
+        "url": "{{site.baseurl}}/aed-to-pkr/"
+      }
+    ]
+  }
+  </script>
+
   {% include tracking-footer.html %}
 </body>
 </html>
-
