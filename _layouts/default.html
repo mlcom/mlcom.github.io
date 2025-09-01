@@ -1,344 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <!-- Enhanced Viewport for Mobile -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" as="style">
-    <link rel="preload" href="{{site.baseurl}}/assets/css/main.css" as="style">
-    <link rel="preload" href="https://code.jquery.com/jquery-3.3.1.min.js" as="script">
-    
-    <!-- Enhanced Meta Tags -->
-    <meta name="description" content="Real-time Saudi Riyal to Pakistani Rupee (SAR to PKR) exchange rate calculator for July 2025. Get accurate currency conversion with historical trends.">
-    <meta name="keywords" content="SAR to PKR, Saudi Riyal to Pakistani Rupee, currency converter, forex rates, exchange rate today, 1 SAR to PKR, money transfer rates">
-    
-    <!-- Improved Author and Copyright -->
-    <meta name="author" content="{{site.name}}">
-    <meta name="copyright" content="Copyright © {{ 'now' | date: "%Y" }} {{site.name}}">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    
-    <!-- Enhanced Open Graph Tags -->
-    <meta property="og:title" content="SAR to PKR Exchange Rate July 2025 | {{site.name}}">
-    <meta property="og:description" content="Convert SAR to PKR with real-time exchange rates for July 2025. Check historical trends and plan your transactions.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{site.baseurl}}{{page.url}}">
-    <meta property="og:image" content="{{site.baseurl}}/assets/images/sar-to-pkr-rate-today.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="{{site.name}}">
-    <meta property="og:locale" content="en_US">
-    
-    <!-- Twitter Card Improvements -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SAR to PKR Exchange Rate July 2025 | {{site.name}}">
-    <meta name="twitter:description" content="Real-time Saudi Riyal to Pakistani Rupee converter with historical data for July 2025.">
-    <meta name="twitter:image" content="{{site.baseurl}}/assets/images/sar-to-pkr-rate-today.jpg">
-    <meta name="twitter:site" content="@{{site.twitter_username}}">
-    <meta name="twitter:creator" content="@{{site.twitter_username}}">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="{{site.baseurl}}{{page.url}}">
-    
-    <!-- Favicon and App Icons -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}/{{site.favicon}}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{site.baseurl}}/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{site.baseurl}}/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{site.baseurl}}/favicon-16x16.png">
-   
-    
-    <!-- Sitemap -->
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-    
-    <!-- Ads Script with Async -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7391081469827045" crossorigin="anonymous"></script>
-    
-    <title>{{page.title}} | {{site.name}}</title>
-    
-    {% seo %}
-    
-    <!-- Font Awesome with Preconnect -->
-    <link rel="preconnect" href="https://use.fontawesome.com">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    
-    <!-- Google Fonts with Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS with Preload -->
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/theme.css">
-    
-    <script
-  src="https://code.jquery.com/jquery-3.7.1.js"
-  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-  crossorigin="anonymous"></script>
-    {% include tracking-header.html %}
+  <meta charset="utf-8">
+  <!-- Enhanced Viewport for Mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" as="style">
+  <link rel="preload" href="{{site.baseurl}}/assets/css/main.css" as="style">
+  <link rel="preload" href="https://code.jquery.com/jquery-3.3.1.min.js" as="script">
+
+  <!-- Meta Tags -->
+  <meta name="description" content="Real-time Saudi Riyal to Pakistani Rupee (SAR to PKR) exchange rate calculator for July 2025. Get accurate currency conversion with historical trends.">
+  <meta name="keywords" content="SAR to PKR, Saudi Riyal to Pakistani Rupee, currency converter, forex rates, exchange rate today, 1 SAR to PKR, money transfer rates">
+  <meta name="author" content="{{site.name}}">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SAR to PKR Exchange Rate July 2025 | {{site.name}}">
+  <meta property="og:description" content="Convert SAR to PKR with real-time exchange rates for July 2025. Check historical trends and plan your transactions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{site.baseurl}}{{page.url}}">
+  <meta property="og:image" content="{{site.baseurl}}/assets/images/sar-to-pkr-rate-today.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SAR to PKR Exchange Rate July 2025 | {{site.name}}">
+  <meta name="twitter:description" content="Real-time Saudi Riyal to Pakistani Rupee converter with historical data for July 2025.">
+  <meta name="twitter:image" content="{{site.baseurl}}/assets/images/sar-to-pkr-rate-today.jpg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="{{site.baseurl}}{{page.url}}">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}/{{site.favicon}}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{site.baseurl}}/apple-touch-icon.png">
+
+  <!-- Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7391081469827045" crossorigin="anonymous"></script>
+
+  <title>{{page.title}} | {{site.name}}</title>
+  {% seo %}
+
+  <!-- Fonts & CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
+  <link rel="stylesheet" href="{{site.baseurl}}/assets/css/theme.css">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  {% include tracking-header.html %}
 </head>
 
 <body class="{% if page.url == '/' %}homefirstpage{% endif %}">
-    <!-- Navbar with ARIA Labels -->
-    <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top" aria-label="Main navigation">
-        <div class="container">
-            <a class="navbar-brand" href="{{ site.baseurl }}/index.html" aria-label="Home"><strong>{{site.name}}</strong></a>
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbarColor02">
-                <ul class="navbar-nav mr-auto d-flex align-items-center">
-                    {% include menu-header.html %}
-                </ul>
-                <ul class="navbar-nav ml-auto d-flex align-items-center">
-                    {% include search-lunr.html %}
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Search Results -->
-    <div id="lunrsearchresults" aria-live="polite">
-        <ul class="mb-0"></ul>
+  <!-- Navbar -->
+  <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="{{ site.baseurl }}/index.html"><strong>{{site.name}}</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">{% include menu-header.html %}</ul>
+        <ul class="navbar-nav ml-auto">{% include search-lunr.html %}</ul>
+      </div>
     </div>
+  </nav>
 
-    <main role="main" class="site-content">
-        <div class="container pt-4 pb-4">
-            <h1 id="seo-heading" class="text-center mb-4" style="font-size: 1.8rem; line-height: 1.3;"></h1>
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h2 class="card-title text-center h5">Global Currency Converter</h2>
-                    <fieldset id="calculator-fieldset" disabled>
-                        <div id="currency-calculator">
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="amount" class="font-weight-bold">Amount</label>
-                                    <input type="number" id="amount" class="form-control" value="100" placeholder="Enter amount" aria-label="Amount to convert">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="from_currency" class="font-weight-bold">From Currency</label>
-                                    <select id="from_currency" class="form-control" aria-label="Select source currency">
-                                        <option>Loading Currencies...</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="to_currency" class="font-weight-bold">To Currency</label>
-                                    <select id="to_currency" class="form-control" aria-label="Select target currency">
-                                        <option>Loading Currencies...</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group text-center mt-3">
-                                <button id="convert-button" class="btn btn-primary w-100 py-2" aria-label="Convert currency">Convert</button>
-                            </div>
-                            <div id="result_container" class="mt-3 text-center">
-                                <div id="result_text" class="text-success font-weight-bold h4" style="font-size: 1.5rem;" aria-live="polite"></div>
-                                <p id="status_text" class="text-muted small"></p>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <small class="text-muted d-block text-center mt-2">Rates updated daily</small>
-                </div>
-            </div>
-            {{ content }}
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            const lastUpdated = "{{ site.data.rates.last_updated_utc | date_to_xmlschema }}";
-            const conversionRates = {{ site.data.rates.rates | jsonify }};
-            const currencyNames = {{ site.data.currency_names | jsonify }};
-            
-            const amountInput = document.getElementById('amount');
-            const fromSelect = document.getElementById('from_currency');
-            const toSelect = document.getElementById('to_currency');
-            const convertButton = document.getElementById('convert-button');
-            const resultText = document.getElementById('result_text');
-            const statusText = document.getElementById('status_text');
-            const fieldset = document.getElementById('calculator-fieldset');
-            const seoHeading = document.getElementById('seo-heading');
+  <!-- Search Results -->
+  <div id="lunrsearchresults" aria-live="polite"><ul class="mb-0"></ul></div>
 
-            
-            function populateCurrencies() {
-                fromSelect.innerHTML = '';
-                toSelect.innerHTML = '';
-                for (const currencyCode in conversionRates) {
-                    const fullName = currencyNames[currencyCode] || currencyCode;
-                    const optionText = `${currencyCode} - ${fullName}`;
-                    
-                    fromSelect.add(new Option(optionText, currencyCode));
-                    toSelect.add(new Option(optionText, currencyCode));
-                }
-                
-                fromSelect.value = 'SAR'; // Default to SAR
-                toSelect.value = 'PKR'; // Default to PKR
-                
-                fieldset.disabled = false;
-                statusText.textContent = `Rates last updated: ${new Date(lastUpdated).toLocaleString()}`;
-                updateSeoHeading();
-            }
-
-             function updateSeoHeading() {
-                const fromCode = fromSelect.value;
-                const toCode = toSelect.value;
-                const fromName = currencyNames[fromCode] || fromCode;
-                const toName = currencyNames[toCode] || toCode;
-                
-                const today = new Date();
-                const formattedDate = today.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
-
-                seoHeading.textContent = `${fromName} to ${toName} Exchange Rate - ${formattedDate}`;
-            }
-            
-            function performConversion() {
-                const amount = parseFloat(amountInput.value);
-                const fromCurrency = fromSelect.value;
-                const toCurrency = toSelect.value;
-
-                if (isNaN(amount)) {
-                    resultText.textContent = '';
-                    statusText.innerHTML = '<span class="text-danger">Please enter a valid amount.</span>';
-                    return;
-                }
-                
-                if (amount <= 0) {
-                    resultText.textContent = '';
-                    statusText.innerHTML = '<span class="text-danger">Amount must be greater than zero.</span>';
-                    return;
-                }
-                
-                const rateFrom = conversionRates[fromCurrency];
-                const rateTo = conversionRates[toCurrency];
-                
-                if (!rateFrom || !rateTo) {
-                    resultText.textContent = '';
-                    statusText.innerHTML = '<span class="text-danger">Currency data not available. Please try again later.</span>';
-                    return;
-                }
-                
-                const convertedAmount = (amount / rateFrom) * rateTo;
-                
-                resultText.innerHTML = `
-                    ${amount.toLocaleString(undefined, {maximumFractionDigits: 2})} 
-                    ${fromCurrency} = 
-                    <strong class="text-primary">
-                        ${convertedAmount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 4})}
-                    </strong> 
-                    ${toCurrency}
-                `;
-                
-                statusText.textContent = `1 ${fromCurrency} = ${(rateTo / rateFrom).toFixed(6)} ${toCurrency}`;
-                updateSeoHeading();
-                
-                // Track conversion in analytics
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'conversion', {
-                        'event_category': 'Currency',
-                        'event_label': `${fromCurrency}_to_${toCurrency}`,
-                        'value': amount
-                    });
-                }
-            }
-
-            // --- Event Listeners ---
-            convertButton.addEventListener('click', performConversion);
-            fromSelect.addEventListener('change', updateSeoHeading);
-            toSelect.addEventListener('change', updateSeoHeading);
-            amountInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    performConversion();
-                }
-            });
-            
-            populateCurrencies();
-            setTimeout(() => {
-                amountInput.focus();
-                amountInput.select();
-            }, 500);
-        });
-        </script>
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "Saudi Riyal to Pakistani Rupee Exchange Rate July 2025",
-            "description": "Convert SAR to PKR with real-time exchange rates for July 2025 using our currency converter.",
-            "url": "{{site.baseurl}}{{page.url}}",
-            "publisher": {
-                "@type": "Organization",
-                "name": "{{site.name}}",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "{{site.baseurl}}/assets/images/logo.png",
-                    "width": "600",
-                    "height": "60"
-                }
-            },
-            "mainEntity": {
-                "@type": "CurrencyConverterService",
-                "name": "SAR to PKR Currency Converter",
-                "description": "Real-time Saudi Riyal (SAR) to Pakistani Rupee (PKR) exchange rate calculator",
-                "currenciesSupported": "SAR, PKR, USD, AED, EUR, GBP",
-                "operatingSystem": "Web application",
-                "featureList": "Real-time exchange rates, historical trends, amount conversion",
-                "applicationCategory": "FinanceApplication",
-                "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD"
-                }
-            },
-            "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "{{site.baseurl}}/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Currency Converter",
-                        "item": "{{site.baseurl}}/currency-converter/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "SAR to PKR",
-                        "item": "{{site.baseurl}}{{page.url}}"
-                    }
-                ]
-            }
-        }
-        </script> 
-    </main>
-
-    <!-- Footer with Semantic Markup -->
-    <footer class="bg-white border-top p-3 text-muted small" role="contentinfo">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-md-6">
-                    <span class="navbar-brand mr-2 mb-0"><strong>{{site.name}}</strong></span>
-                    <span>Copyright © <script>document.write(new Date().getFullYear())</script>. All rights reserved.</span>
-                </div>
-                <div class="col-md-6 text-md-right">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="{{site.baseurl}}/privacy-policy/" class="text-muted">Privacy Policy</a></li>
-                        <li class="list-inline-item"><a href="{{site.baseurl}}/terms/" class="text-muted">Terms of Service</a></li>
-                        <li class="list-inline-item"><a href="{{site.baseurl}}/contact/" class="text-muted">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
+  <!-- Main Content + Sidebar -->
+  <main role="main" class="site-content">
+    <div class="container pt-4 pb-4">
+      <div class="row">
+        
+        <!-- SEO Content -->
+        <div class="col-lg-9 col-md-8">
+          <h1 id="seo-heading" class="mb-4 h2"></h1>
+          {{ content }}
         </div>
-    </footer>
 
-    <!-- Optimized Script Loading -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src="{{site.baseurl}}/assets/js/theme.js"></script>
+        <!-- Sidebar Calculator -->
+        <aside class="col-lg-3 col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-body p-3">
+              <h2 class="h6 text-center mb-2">Currency Converter</h2>
+              <fieldset id="calculator-fieldset" disabled>
+                <div id="currency-calculator">
+                  <div class="form-group mb-2">
+                    <input type="number" id="amount" class="form-control form-control-sm" value="100" placeholder="Amount">
+                  </div>
+                  <div class="form-group mb-2">
+                    <select id="from_currency" class="form-control form-control-sm"></select>
+                  </div>
+                  <div class="form-group mb-2">
+                    <select id="to_currency" class="form-control form-control-sm"></select>
+                  </div>
+                  <button id="convert-button" class="btn btn-primary btn-sm w-100">Convert</button>
+                  <div id="result_container" class="mt-2 text-center">
+                    <div id="result_text" class="text-success font-weight-bold small"></div>
+                    <p id="status_text" class="text-muted small mb-0"></p>
+                  </div>
+                </div>
+              </fieldset>
+              <small class="text-muted d-block text-center mt-2">Rates updated daily</small>
+            </div>
+          </div>
+        </aside>
 
-    {% include tracking-footer.html %}
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-top p-3 text-muted small">
+    <div class="container">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-md-6">
+          <span class="navbar-brand mr-2"><strong>{{site.name}}</strong></span>
+          <span>Copyright © <script>document.write(new Date().getFullYear())</script>. All rights reserved.</span>
+        </div>
+        <div class="col-md-6 text-md-right">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item"><a href="{{site.baseurl}}/privacy-policy/">Privacy Policy</a></li>
+            <li class="list-inline-item"><a href="{{site.baseurl}}/terms/">Terms</a></li>
+            <li class="list-inline-item"><a href="{{site.baseurl}}/contact/">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script src="{{site.baseurl}}/assets/js/theme.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const lastUpdated = "{{ site.data.rates.last_updated_utc | date_to_xmlschema }}";
+      const conversionRates = {{ site.data.rates.rates | jsonify }};
+      const currencyNames = {{ site.data.currency_names | jsonify }};
+
+      const amountInput = document.getElementById('amount');
+      const fromSelect = document.getElementById('from_currency');
+      const toSelect = document.getElementById('to_currency');
+      const convertButton = document.getElementById('convert-button');
+      const resultText = document.getElementById('result_text');
+      const statusText = document.getElementById('status_text');
+      const fieldset = document.getElementById('calculator-fieldset');
+      const seoHeading = document.getElementById('seo-heading');
+
+      function populateCurrencies() {
+        fromSelect.innerHTML = '';
+        toSelect.innerHTML = '';
+        for (const currencyCode in conversionRates) {
+          const fullName = currencyNames[currencyCode] || currencyCode;
+          const optionText = `${currencyCode} - ${fullName}`;
+          fromSelect.add(new Option(optionText, currencyCode));
+          toSelect.add(new Option(optionText, currencyCode));
+        }
+        fromSelect.value = 'SAR';
+        toSelect.value = 'PKR';
+        fieldset.disabled = false;
+        statusText.textContent = `Rates last updated: ${new Date(lastUpdated).toLocaleString()}`;
+        updateSeoHeading();
+      }
+
+      function updateSeoHeading() {
+        const fromCode = fromSelect.value;
+        const toCode = toSelect.value;
+        const fromName = currencyNames[fromCode] || fromCode;
+        const toName = currencyNames[toCode] || toCode;
+        const today = new Date();
+        const formattedDate = today.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+        seoHeading.textContent = `${fromName} to ${toName} Exchange Rate - ${formattedDate}`;
+      }
+
+      function performConversion() {
+        const amount = parseFloat(amountInput.value);
+        const fromCurrency = fromSelect.value;
+        const toCurrency = toSelect.value;
+
+        if (isNaN(amount) || amount <= 0) {
+          resultText.textContent = '';
+          statusText.innerHTML = '<span class="text-danger">Please enter a valid amount greater than zero.</span>';
+          return;
+        }
+
+        const rateFrom = conversionRates[fromCurrency];
+        const rateTo = conversionRates[toCurrency];
+        if (!rateFrom || !rateTo) {
+          resultText.textContent = '';
+          statusText.innerHTML = '<span class="text-danger">Currency data not available. Please try again later.</span>';
+          return;
+        }
+
+        const convertedAmount = (amount / rateFrom) * rateTo;
+        resultText.innerHTML = `
+          ${amount.toLocaleString(undefined, {maximumFractionDigits: 2})} ${fromCurrency} =
+          <strong class="text-primary">${convertedAmount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 4})}</strong> ${toCurrency}
+        `;
+        statusText.textContent = `1 ${fromCurrency} = ${(rateTo / rateFrom).toFixed(6)} ${toCurrency}`;
+        updateSeoHeading();
+      }
+
+      convertButton.addEventListener('click', performConversion);
+      fromSelect.addEventListener('change', updateSeoHeading);
+      toSelect.addEventListener('change', updateSeoHeading);
+      amountInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') performConversion();
+      });
+
+      populateCurrencies();
+    });
+  </script>
+
+  {% include tracking-footer.html %}
 </body>
 </html>
