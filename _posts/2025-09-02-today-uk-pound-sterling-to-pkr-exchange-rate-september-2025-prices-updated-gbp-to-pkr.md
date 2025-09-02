@@ -1,32 +1,32 @@
 ---
 layout: post
-title:  'Live UK Pound Sterling to Pakistani Rupee Rate on 01 September 2025'
+title:  'Live UK Pound Sterling to Pakistani Rupee Rate on 02 September 2025'
 author: john
 categories: [ gbp-to-pkr ]
 image: assets/images/usd-to-pkr-rate-today.jpg
 tags: ['GBP to PKR', 'UK Pound to Pakistani Rupee', 'pound rate in pakistan', 'great britain pound to pkr', 'uk to pakistan money transfer']
 ---
 
-# UK Pound Sterling to Pakistani Rupee Exchange Rate – 01 September 2025
+# UK Pound Sterling to Pakistani Rupee Exchange Rate – 02 September 2025
 
-For anyone looking to convert UK Pound Sterling (GBP) to Pakistani Rupee (PKR), staying updated with the latest exchange rate is essential. As of 01 September 2025, the current mid-market rate is:
+For anyone looking to convert UK Pound Sterling (GBP) to Pakistani Rupee (PKR), staying updated with the latest exchange rate is essential. As of 02 September 2025, the current mid-market rate is:
 
-**1 GBP = 383.27 PKR**
+**1 GBP = 384.23 PKR**
 
 This rate is a benchmark for currency conversion and is sourced from reliable global financial data providers.
 
 | GBP | PKR |
 | --- | --- |
-| 1 GBP | PKR 383.27 |
-| 5 GBP | PKR 1,916.37 |
-| 10 GBP | PKR 3,832.75 |
-| 25 GBP | PKR 9,581.86 |
-| 50 GBP | PKR 19,163.73 |
-| 100 GBP | PKR 38,327.45 |
-| 500 GBP | PKR 191,637.27 |
-| 1,000 GBP | PKR 383,274.53 |
-| 5,000 GBP | PKR 1,916,372.65 |
-| 10,000 GBP | PKR 3,832,745.31 |
+| 1 GBP | PKR 384.23 |
+| 5 GBP | PKR 1,921.17 |
+| 10 GBP | PKR 3,842.35 |
+| 25 GBP | PKR 9,605.86 |
+| 50 GBP | PKR 19,211.73 |
+| 100 GBP | PKR 38,423.45 |
+| 500 GBP | PKR 192,117.26 |
+| 1,000 GBP | PKR 384,234.53 |
+| 5,000 GBP | PKR 1,921,172.65 |
+| 10,000 GBP | PKR 3,842,345.29 |
 
 
 ## Understanding Exchange Rate Fluctuations
@@ -45,7 +45,7 @@ This depends on your personal needs. If the Pound is currently strong against th
 
 ### How much is 100 Pounds in Pakistani Rupees?
 
-Based on the live mid-market rate, 100 UK Pound Sterling equals **383,274.53** Pakistani Rupees. The final amount may vary based on the service provider's rate and fees.
+Based on the live mid-market rate, 100 UK Pound Sterling equals **384,234.53** Pakistani Rupees. The final amount may vary based on the service provider's rate and fees.
 
 
 
