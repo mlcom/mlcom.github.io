@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'UK Pound Sterling (GBP) to Pakistani Rupee (PKR) Rate Today – 05 September 2025'
+title:  'Today GBP to PKR Exchange Rate: 05 September 2025'
 author: john
 categories: [ gbp-to-pkr ]
 image: assets/images/usd-to-pkr-rate-today.jpg
