@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'Saudi Riyal (SAR) to Pakistani Rupee (PKR) Rate Today – 06 September 2025'
+title:  'Today SAR to PKR Exchange Rate: 06 September 2025'
 author: jane
 categories: [ sar-to-pkr ]
 image: assets/images/sar-to-pkr-rate-today.jpg
