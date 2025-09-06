@@ -1,32 +1,32 @@
 ---
 layout: post
-title:  'UAE Dirham (AED) to Pakistani Rupee (PKR) Rate Today – 05 September 2025'
+title:  'Live UAE Dirham to Pakistani Rupee Rate on 06 September 2025'
 author: jane
 categories: [ aed-to-pkr ]
 image: assets/images/aed-to-pkr-rate-today.jpg
 tags: ['AED to PKR', 'UAE Dirham to Pakistani Rupee', 'dubai dirham to pkr', 'dirham rate in pakistan today', 'uae exchange rate pakistan']
 ---
 
-# UAE Dirham to Pakistani Rupee Exchange Rate – 05 September 2025
+# UAE Dirham to Pakistani Rupee Exchange Rate – 06 September 2025
 
-For anyone looking to convert UAE Dirham (AED) to Pakistani Rupee (PKR), staying updated with the latest exchange rate is essential. As of 05 September 2025, the current mid-market rate is:
+For anyone looking to convert UAE Dirham (AED) to Pakistani Rupee (PKR), staying updated with the latest exchange rate is essential. As of 06 September 2025, the current mid-market rate is:
 
-**1 AED = 77.24 PKR**
+**1 AED = 77.27 PKR**
 
 This rate is a benchmark for currency conversion and is sourced from reliable global financial data providers.
 
 | AED | PKR |
 | --- | --- |
-| 1 AED | PKR 77.24 |
-| 5 AED | PKR 386.19 |
-| 10 AED | PKR 772.38 |
-| 25 AED | PKR 1,930.95 |
-| 50 AED | PKR 3,861.90 |
-| 100 AED | PKR 7,723.80 |
-| 500 AED | PKR 38,618.98 |
-| 1,000 AED | PKR 77,237.96 |
-| 5,000 AED | PKR 386,189.79 |
-| 10,000 AED | PKR 772,379.58 |
+| 1 AED | PKR 77.27 |
+| 5 AED | PKR 386.33 |
+| 10 AED | PKR 772.66 |
+| 25 AED | PKR 1,931.66 |
+| 50 AED | PKR 3,863.32 |
+| 100 AED | PKR 7,726.64 |
+| 500 AED | PKR 38,633.18 |
+| 1,000 AED | PKR 77,266.36 |
+| 5,000 AED | PKR 386,331.79 |
+| 10,000 AED | PKR 772,663.58 |
 
 
 ## Understanding Exchange Rate Fluctuations
@@ -45,7 +45,7 @@ The UAE pegged the Dirham to the US Dollar to ensure economic stability. This pe
 
 ### How much is 500 AED in Pakistani Rupees today?
 
-As per today's mid-market rates, 500 UAE Dirhams would convert to **77,237.96** Pakistani Rupees. Remember to check with your money transfer operator for their final rate.
+As per today's mid-market rates, 500 UAE Dirhams would convert to **77,266.36** Pakistani Rupees. Remember to check with your money transfer operator for their final rate.
 
 
 
