@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'Today USD to PKR Exchange Rate: 07 September 2025'
+title:  'Live US Dollar to Pakistani Rupee Rate on 07 September 2025'
 author: jane
 categories: [ usd-to-pkr ]
 image: assets/images/usd-to-pkr-rate-today.jpg
