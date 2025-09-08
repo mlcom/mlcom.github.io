@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'Today AED to PKR Exchange Rate: 08 September 2025'
+title:  'UAE Dirham (AED) to Pakistani Rupee (PKR) Rate Today – 08 September 2025'
 author: jane
 categories: [ aed-to-pkr ]
 image: assets/images/aed-to-pkr-rate-today.jpg
