@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  'Live Saudi Riyal to Pakistani Rupee Rate on 12 September 2025'
+title:  'Saudi Riyal (SAR) to Pakistani Rupee (PKR) Rate Today – 12 September 2025'
 author: jane
 categories: [ sar-to-pkr ]
 image: assets/images/sar-to-pkr-rate-today.jpg
