@@ -1,4 +1,0 @@
-Sitemap: https://mlcom.github.io/sitemap.xml
-User-agent: *
-Disallow:
-
